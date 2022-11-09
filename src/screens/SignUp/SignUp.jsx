@@ -1,35 +1,28 @@
-import {View, Text, TextInput, Image} from 'react-native';
+import {View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
 import React from 'react';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import {
-  StyledButton,
-  StyledButtonText,
-} from '../../components/StyledButton/StyledButton';
+import Button from '../../components/StyledButton/StyledButton';
 import styles from './styles';
+import Ellipse from '../../components/Ellipse/Ellipse';
 
 const SignUp = ({navigation}) => {
   return (
     <MainContainer>
-      <Image
-        source={require('../../assets/elipse.png')}
-        style={styles.backgroundImg}
-      />
+      <Ellipse />
 
       <View style={styles.header}>
         <Text style={styles.h1}>Welcome Onboard!</Text>
         <Text>Let's help you meet up your tasks.</Text>
       </View>
 
-      <View style={styles.inputGroup}>
+      <KeyboardAvoidingView behavior={Platform.OS == 'ios' ? 'padding' : 'height'} style={styles.inputGroup}>
         <TextInput style={styles.input} placeholder="Enter your full name" />
         <TextInput style={styles.input} placeholder="Enter your e-mail" />
         <TextInput style={styles.input} placeholder="Enter your password" />
         <TextInput style={styles.input} placeholder="Confirm password" />
-      </View>
+      </KeyboardAvoidingView>
 
-      <StyledButton>
-        <StyledButtonText>Register</StyledButtonText>
-      </StyledButton>
+      <Button title="Register" />
 
       <Text style={styles.helperText}>
         Already have an account ?{' '}

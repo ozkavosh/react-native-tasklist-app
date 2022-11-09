@@ -1,11 +1,6 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    backgroundImg: {
-      position: 'absolute',
-      top: -105,
-      left: -125
-    },
     h1: {
       fontWeight: 'bold',
       color: 'black',
@@ -27,7 +22,8 @@ const styles = StyleSheet.create({
       textAlign: "center"
     },
     inputGroup: {
-      marginBottom: 55
+      marginBottom: 55,
+      justifyContent: "flex-end"
     },
     input: {
       borderRadius: 30,

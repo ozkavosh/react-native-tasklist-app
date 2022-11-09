@@ -10,11 +10,6 @@ const styles = StyleSheet.create({
     width: 165,
     height: 165,
   },
-  backgroundImg: {
-    position: 'absolute',
-    top: -105,
-    left: -125,
-  },
   h1: {
     fontWeight: 'bold',
     color: 'black',

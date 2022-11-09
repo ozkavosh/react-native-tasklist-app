@@ -1,13 +1,14 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
 import MainContainer from '../../components/MainContainer/MainContainer';
-import { StyledButton, StyledButtonText } from '../../components/StyledButton/StyledButton';
+import Button from '../../components/StyledButton/StyledButton';
 import styles from './styles';
+import Ellipse from '../../components/Ellipse/Ellipse';
 
 const OnBoarding = ({navigation}) => {
   return (
     <MainContainer style={{ alignItems: 'center' }}>
-      <Image source={require('../../assets/elipse.png')} style={styles.backgroundImg} />
+      <Ellipse />
 
       <View style={styles.header}>
         <Image source={require('../../assets/onboarding.png')} style={styles.headerImg}/>
@@ -16,9 +17,7 @@ const OnBoarding = ({navigation}) => {
 
       <Text style={styles.p}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, tempora. Esse natus suscipit cumque perspiciatis eos, aliquam quae ducimus iure quasi.</Text>
 
-      <StyledButton onPress={() => navigation.navigate('SignUp')} style={{ alignSelf: 'stretch' }}>
-        <StyledButtonText>Get Started</StyledButtonText>
-      </StyledButton>
+      <Button title="Get Started" onPress={() => navigation.navigate('SignUp')} style={{ alignSelf: 'stretch' }}/>
     </MainContainer>
   )
 }
