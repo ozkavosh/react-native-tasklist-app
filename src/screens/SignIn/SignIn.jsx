@@ -1,5 +1,5 @@
-import {View, Text, TextInput, Image} from 'react-native';
-import React, {useReducer} from 'react';
+import {View, Text, Image} from 'react-native';
+import React from 'react';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../components/StyledButton/StyledButton';
 import styles from './styles';
