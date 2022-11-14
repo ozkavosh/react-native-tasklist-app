@@ -3,6 +3,8 @@ import {useReducer} from 'react';
 const useForm = fields => {
   const [formState, formDispatch] = useReducer((state, action) => {
     switch (action.type) {
+      case 'RESET_FIELDS':
+        return fields;
       case 'SET_FIELD':
         return {...state, [action.payload.field]: action.payload.value};
       default:
@@ -13,6 +15,10 @@ const useForm = fields => {
   const handleInput = (field, value) => {
     formDispatch({type: 'SET_FIELD', payload: {field, value}});
   };
+
+  const resetFields = () => {
+    formDispatch({type: 'RESET_FIELDS'});
+  }
 
   const validateFields = (fields) => {
     const errors = [];
@@ -42,7 +48,7 @@ const useForm = fields => {
     return errors;
   }
 
-  return [formState, handleInput, validateFields];
+  return [formState, handleInput, validateFields, resetFields];
 };
 
 export default useForm;

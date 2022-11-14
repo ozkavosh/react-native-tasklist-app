@@ -10,7 +10,7 @@ import Form from '../../components/Form/Form';
 import handleSubmit from '../../utils/handleSubmit';
 
 const SignUp = ({navigation}) => {
-  const [formState, handleInput, validateFields] = useForm(SIGNUP_FIELDS);
+  const [formState, handleInput, validateFields, resetFields] = useForm(SIGNUP_FIELDS);
 
   return (
     <MainContainer>
@@ -33,6 +33,7 @@ const SignUp = ({navigation}) => {
             navigation,
             formState,
             validateFields,
+            resetFields,
             'http://localhost:3001/user/register',
             'Cuenta creada con éxito',
           )

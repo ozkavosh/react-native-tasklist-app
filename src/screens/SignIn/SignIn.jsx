@@ -10,7 +10,7 @@ import Form from '../../components/Form/Form';
 import handleSubmit from '../../utils/handleSubmit';
 
 const SignIn = ({navigation}) => {
-  const [formState, handleInput, validateFields] = useForm(SIGNIN_FIELDS);
+  const [formState, handleInput, validateFields, resetFields] = useForm(SIGNIN_FIELDS);
 
   return (
     <MainContainer>
@@ -41,6 +41,7 @@ const SignIn = ({navigation}) => {
             navigation,
             formState,
             validateFields,
+            resetFields,
             'http://localhost:3001/user/login',
             'Sesión iniciada con éxito',
           )

@@ -6,6 +6,7 @@ const handleSubmit = async (
   navigation,
   formState,
   validateFields,
+  resetFields,
   postUrl,
   successMessage,
 ) => {
@@ -32,6 +33,8 @@ const handleSubmit = async (
       message: successMessage,
       type: 'success',
     });
+
+    resetFields();
 
     navigation.navigate('Home');
   } catch (e) {
