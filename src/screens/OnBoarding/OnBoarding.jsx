@@ -4,6 +4,7 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../components/StyledButton/StyledButton';
 import styles from './styles';
 import Ellipse from '../../components/Ellipse/Ellipse';
+import { showMessage, hideMessage } from "react-native-flash-message";
 
 const OnBoarding = ({navigation}) => {
   return (
