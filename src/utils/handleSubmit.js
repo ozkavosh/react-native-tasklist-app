@@ -1,15 +1,13 @@
 import {showMessage} from 'react-native-flash-message';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
-const handleSubmit = async (
-  navigation,
+const handleSubmit = async ({
   formState,
   validateFields,
   resetFields,
   postUrl,
-  successMessage,
-) => {
+  setToken,
+}) => {
   try {
     const {email, password, name} = formState;
     const errors = validateFields(formState);
@@ -23,21 +21,15 @@ const handleSubmit = async (
     const request = await axios.post(postUrl, {
       email,
       password,
-      name
-    });
-
-    const {token} = request.data;
-    await AsyncStorage.setItem('token', token);
-
-    showMessage({
-      message: successMessage,
-      type: 'success',
+      name,
     });
 
     resetFields();
 
-    navigation.navigate('Home');
+    const {token} = request.data;
+    setToken(token);
   } catch (e) {
+    console.log(e);
     showMessage({
       message: e?.response?.request?._response || 'Error inesperado',
       type: 'warning',

@@ -4,18 +4,8 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import styles from './styles';
 import Ellipse from '../../components/Ellipse/Ellipse';
 import Clock from '../../components/Clock/Clock';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Home = ({navigation}) => {
-  React.useEffect(() => {
-    (async () => {
-      const token = await AsyncStorage.getItem("token");
-      console.log(token);
-    })()
-    
-  }, [])
-
-
   return (
     <MainContainer>
       <Ellipse light />

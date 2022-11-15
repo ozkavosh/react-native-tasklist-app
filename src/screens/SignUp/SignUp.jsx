@@ -8,9 +8,12 @@ import SIGNUP_FIELDS from './signUpFields';
 import useForm from '../../hooks/useForm';
 import Form from '../../components/Form/Form';
 import handleSubmit from '../../utils/handleSubmit';
+import {useAuthContext} from '../../context/authContext';
 
 const SignUp = ({navigation}) => {
-  const [formState, handleInput, validateFields, resetFields] = useForm(SIGNUP_FIELDS);
+  const [formState, handleInput, validateFields, resetFields] =
+    useForm(SIGNUP_FIELDS);
+  const {setToken} = useAuthContext();
 
   return (
     <MainContainer>
@@ -29,14 +32,13 @@ const SignUp = ({navigation}) => {
       />
       <Button
         onPress={() =>
-          handleSubmit(
-            navigation,
+          handleSubmit({
             formState,
             validateFields,
             resetFields,
-            'http://localhost:3001/user/register',
-            'Cuenta creada con éxito',
-          )
+            setToken,
+            postUrl: 'http://localhost:3001/user/register',
+          })
         }
         title="Register"
       />

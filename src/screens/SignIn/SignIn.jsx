@@ -8,9 +8,12 @@ import SIGNIN_FIELDS from './signInFields';
 import useForm from '../../hooks/useForm';
 import Form from '../../components/Form/Form';
 import handleSubmit from '../../utils/handleSubmit';
+import {useAuthContext} from '../../context/authContext';
 
 const SignIn = ({navigation}) => {
-  const [formState, handleInput, validateFields, resetFields] = useForm(SIGNIN_FIELDS);
+  const [formState, handleInput, validateFields, resetFields] =
+    useForm(SIGNIN_FIELDS);
+  const {setToken} = useAuthContext();
 
   return (
     <MainContainer>
@@ -37,14 +40,13 @@ const SignIn = ({navigation}) => {
 
       <Button
         onPress={() =>
-          handleSubmit(
-            navigation,
+          handleSubmit({
             formState,
             validateFields,
             resetFields,
-            'http://localhost:3001/user/login',
-            'Sesión iniciada con éxito',
-          )
+            setToken,
+            postUrl: 'http://localhost:3001/user/login',
+          })
         }
         title={'Log in'}
       />
