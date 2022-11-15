@@ -44,7 +44,8 @@ export const AuthContextProvider = ({children}) => {
     authDispatch({type: 'SET_AUTH', payload: {user, token}});
   };
 
-  const logout = () => {
+  const logout = async () => {
+    await AsyncStorage.removeItem(token);
     authDispatch({type: 'LOGOUT'});
   };
 
