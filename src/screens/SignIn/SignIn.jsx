@@ -1,4 +1,4 @@
-import {View, Text, Image} from 'react-native';
+import {View, Image} from 'react-native';
 import React from 'react';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../components/StyledButton/StyledButton';
@@ -9,6 +9,7 @@ import useForm from '../../hooks/useForm';
 import Form from '../../components/Form/Form';
 import handleSubmit from '../../utils/handleSubmit';
 import {useAuthContext} from '../../context/authContext';
+import { H1, P, Span } from '../../components/Text/Text';
 
 const SignIn = ({navigation}) => {
   const [formState, handleInput, validateFields, resetFields] =
@@ -20,7 +21,7 @@ const SignIn = ({navigation}) => {
       <Ellipse />
 
       <View style={styles.header}>
-        <Text style={styles.h1}>Welcome Back!</Text>
+        <H1 mb={15}>Welcome Back!</H1>
         <Image
           source={require('../../assets/login.png')}
           style={styles.headerImg}
@@ -34,9 +35,9 @@ const SignIn = ({navigation}) => {
         handleInput={handleInput}
       />
 
-      <Text style={[styles.textMain, styles.passwordText]}>
+      <P mt={35} mb={45} center primary>
         Forget password?
-      </Text>
+      </P>
 
       <Button
         onPress={() =>
@@ -45,20 +46,21 @@ const SignIn = ({navigation}) => {
             validateFields,
             resetFields,
             setToken,
-            postUrl: 'http://localhost:3001/user/login',
+            postUrl: 'https://ozkavosh-todo-api.glitch.me/user/login',
           })
         }
         title={'Log in'}
       />
 
-      <Text style={styles.helperText}>
+      <P mt={15} center>
         Don't have an account ?{' '}
-        <Text
-          onPress={() => navigation.navigate('SignUp')}
-          style={styles.textMain}>
+        <Span
+          primary
+          bold
+          onPress={() => navigation.navigate('SignUp')}>
           Sign up
-        </Text>{' '}
-      </Text>
+        </Span>
+      </P>
     </MainContainer>
   );
 };

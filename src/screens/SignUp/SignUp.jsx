@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../components/StyledButton/StyledButton';
@@ -9,6 +9,7 @@ import useForm from '../../hooks/useForm';
 import Form from '../../components/Form/Form';
 import handleSubmit from '../../utils/handleSubmit';
 import {useAuthContext} from '../../context/authContext';
+import {H1, P, Span} from '../../components/Text/Text';
 
 const SignUp = ({navigation}) => {
   const [formState, handleInput, validateFields, resetFields] =
@@ -20,8 +21,8 @@ const SignUp = ({navigation}) => {
       <Ellipse />
 
       <View style={styles.header}>
-        <Text style={styles.h1}>Welcome Onboard!</Text>
-        <Text>Let's help you meet up your tasks.</Text>
+        <H1 mb={15}>Welcome Onboard!</H1>
+        <P>Let's help you meet up your tasks.</P>
       </View>
 
       <Form
@@ -37,20 +38,18 @@ const SignUp = ({navigation}) => {
             validateFields,
             resetFields,
             setToken,
-            postUrl: 'http://localhost:3001/user/register',
+            postUrl: 'https://ozkavosh-todo-api.glitch.me/user/register',
           })
         }
         title="Register"
       />
 
-      <Text style={styles.helperText}>
+      <P mt={15} center>
         Already have an account ?{' '}
-        <Text
-          onPress={() => navigation.navigate('SignIn')}
-          style={styles.textMain}>
+        <Span bold primary onPress={() => navigation.navigate('SignIn')}>
           Sign in
-        </Text>{' '}
-      </Text>
+        </Span>
+      </P>
     </MainContainer>
   );
 };

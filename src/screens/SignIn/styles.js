@@ -5,31 +5,10 @@ const styles = StyleSheet.create({
     width: 165,
     height: 165
   },
-  h1: {
-    fontWeight: 'bold',
-    color: 'black',
-    fontSize: 19,
-    marginBottom: 15
-  },
   header: {
     alignItems: 'center',
     marginTop: 165,
     marginBottom: 35
-  },
-  textMain: {
-    color: "#50C2C9",
-    fontWeight: 'bold',
-  },
-  passwordText: {
-    marginTop: 35,
-    marginBottom: 45,
-    width: "100%",
-    textAlign: "center"
-  },
-  helperText: {
-    marginTop: 15,
-    width: "100%",
-    textAlign: "center"
   },
   input: {
     borderRadius: 30,

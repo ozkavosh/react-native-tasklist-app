@@ -1,11 +1,16 @@
-import {View, Text, Image} from 'react-native';
+import {View, Image} from 'react-native';
 import React from 'react';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import styles from './styles';
 import Ellipse from '../../components/Ellipse/Ellipse';
 import Clock from '../../components/Clock/Clock';
+import { useAuthContext } from '../../context/authContext';
+import { H1 } from '../../components/Text/Text';
+import Button from '../../components/StyledButton/StyledButton';
 
 const Home = ({navigation}) => {
+  const { auth, logout } = useAuthContext();
+
   return (
     <MainContainer>
       <Ellipse light />
@@ -22,10 +27,12 @@ const Home = ({navigation}) => {
           )}
         </View>
 
-        <Text style={styles.h1}>Welcome Jorgito Perez</Text>
+        <H1 mv={30} light> Welcome {auth?.user?.name} </H1>
       </View>
 
       <Clock/>
+
+      <Button onPress={logout} title="Logout" />
     </MainContainer>
   );
 };

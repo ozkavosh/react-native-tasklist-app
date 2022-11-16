@@ -2,19 +2,12 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   p: {
-    width: '70%',
-    textAlign: 'center',
-    marginBottom: 135,
+    width: '65%'
   },
+  button: { alignSelf: 'stretch' },
   headerImg: {
     width: 165,
     height: 165,
-  },
-  h1: {
-    fontWeight: 'bold',
-    color: 'black',
-    fontSize: 19,
-    marginTop: 15,
   },
   header: {
     alignItems: 'center',
