@@ -45,10 +45,10 @@ export const AuthContextProvider = ({children}) => {
   };
 
   const logout = async () => {
-    try{
-      await AsyncStorage.removeItem(token);
+    try {
+      await AsyncStorage.removeItem('token');
       authDispatch({type: 'LOGOUT'});
-    }catch(e){
+    } catch (e) {
       authDispatch({type: 'LOGOUT'});
     }
   };
@@ -66,17 +66,20 @@ export const AuthContextProvider = ({children}) => {
   }, []);
 
   useEffect(() => {
-    if(auth.token){
+    if (auth.token) {
       (async () => {
-        try{
-          const request = await axios.get('https://ozkavosh-todo-api.glitch.me/user/me', { headers: { 'Authorization': 'Bearer ' + auth.token} });
+        try {
+          const request = await axios.get(
+            'https://ozkavosh-todo-api.glitch.me/user/me',
+            {headers: {Authorization: 'Bearer ' + auth.token}},
+          );
           const user = request.data;
           setUser(user);
-        }catch(e){
+        } catch (e) {
           logout();
           console.log(e);
         }
-      })()
+      })();
     }
   }, [auth.token]);
 
