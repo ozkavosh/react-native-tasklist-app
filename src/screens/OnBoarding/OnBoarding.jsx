@@ -5,6 +5,7 @@ import Button from '../../components/StyledButton/StyledButton';
 import styles from './styles';
 import Ellipse from '../../components/Ellipse/Ellipse';
 import {H1, P} from '../../components/Text/Text';
+import t from '../../utils/translate';
 
 const OnBoarding = ({navigation}) => {
   return (
@@ -16,7 +17,7 @@ const OnBoarding = ({navigation}) => {
           source={require('../../assets/onboarding.png')}
           style={styles.headerImg}
         />
-        <H1 mt={15}>Get things done with TODo!</H1>
+        <H1 mt={15}>{t('onBoarding.headingText')}</H1>
       </View>
 
       <P mb={135} center style={styles.p}>
@@ -26,7 +27,7 @@ const OnBoarding = ({navigation}) => {
       </P>
 
       <Button
-        title="Get Started"
+        title={t('onBoarding.getStartedBtnTitle')}
         onPress={() => navigation.navigate('SignUp')}
         style={styles.button}
       />

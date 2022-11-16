@@ -1,5 +1,6 @@
 import {KeyboardAvoidingView, TextInput} from 'react-native';
 import React from 'react';
+import t from '../../utils/translate';
 
 const Form = ({formStyle, inputStyle, formState, handleInput}) => {
   return (
@@ -13,7 +14,7 @@ const Form = ({formStyle, inputStyle, formState, handleInput}) => {
           onChangeText={value => handleInput(field, value)}
           style={inputStyle}
           secureTextEntry={field === "password" || field === "passwordConfirm"}
-          placeholder={field === "passwordConfirm" ? "Confirm your password" : `Enter your ${field}`}
+          placeholder={field === "passwordConfirm" ? t('signUp.placeholderPasswordConfirm') : t('signUp.placeholderDefault')(field)}
         />
       ))}
     </KeyboardAvoidingView>

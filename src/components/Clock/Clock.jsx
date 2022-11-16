@@ -1,7 +1,8 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {withAnchorPoint} from 'react-native-anchor-point';
+import t from '../../utils/translate';
 
 const Hand = ({time, type}) => {
   const height = type === 'seconds' ? 2 : type === 'minutes' ? 3 : 5;
@@ -126,13 +127,13 @@ const TimedGreeting = styled.Text`
 
 const getTimedGreeting = () => {
   const hours = new Date(Date.now()).getHours();
-  return hours < 12 ? 'Morning' : 'Afternoon';
+  return hours < 12 ? t('home.clockGreetingAM') : t('home.clockGreetingPM');
 }
 
 const Clock = () => {
   return (
     <View style={{width: '100%', alignItems: 'center'}}>
-      <TimedGreeting>{ `Good ${getTimedGreeting()}` }</TimedGreeting>
+      <TimedGreeting>{ `${getTimedGreeting()}` }</TimedGreeting>
       <Base />
     </View>
   );
