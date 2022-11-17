@@ -16,6 +16,8 @@ const SignIn = ({navigation}) => {
     useForm(SIGNIN_FIELDS);
   const {setToken} = useAuthContext();
 
+  console.log(formState);
+
   return (
     <MainContainer>
       <Ellipse />

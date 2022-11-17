@@ -1,4 +1,5 @@
 import {showMessage} from 'react-native-flash-message';
+import t from '../utils/translate';
 import axios from 'axios';
 
 const handleSubmit = async ({
@@ -9,7 +10,7 @@ const handleSubmit = async ({
   setToken,
 }) => {
   try {
-    const {email, password, name} = formState;
+    const {[t('signInFields.email')]: email, [t('signInFields.password')]: password, [t('signUpFields.name')]: name} = formState;
     const errors = validateFields(formState);
 
     if (errors.length)

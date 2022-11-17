@@ -10,13 +10,14 @@ import Button from '../../components/StyledButton/StyledButton';
 import axios from 'axios';
 import t from '../../utils/translate';
 import Checkbox from '../../components/Checkbox/Checkbox';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Home = ({navigation}) => {
   const {auth, logout} = useAuthContext();
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    (async () => {
+    const unsubscribe = navigation.addListener('focus', async () => {
       try {
         const request = await axios.get(
           'https://ozkavosh-todo-api.glitch.me/task',
@@ -27,10 +28,10 @@ const Home = ({navigation}) => {
         console.log(e);
         setTasks([]);
       }
-    })();
-  }, []);
+    });
 
-  console.log(tasks);
+    return () => unsubscribe;
+  }, [navigation]);
 
   return (
     <MainContainer>
@@ -88,6 +89,7 @@ const Home = ({navigation}) => {
             }}
             title="+"
             onPress={() => navigation.navigate('AddTask')}
+            // onPress={logout}
           />
         </View>
         <FlatList
@@ -95,9 +97,15 @@ const Home = ({navigation}) => {
           extraData={tasks}
           keyExtractor={item => item._id}
           renderItem={({item}) => (
-            <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 13}}>
-              <Checkbox style={{ marginRight: 5 }}/>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginBottom: 13,
+              }}>
+              <Checkbox style={{marginRight: 5}} />
               <P>{item.description}</P>
+              <Icon style={{ marginLeft: 'auto'}} name="trash" size={20} color="#000"  />
             </View>
           )}
           style={{flex: 1, width: '100%'}}

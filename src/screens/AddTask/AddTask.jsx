@@ -19,11 +19,11 @@ const AddTask = () => {
     try {
       const {description} = formState;
 
-      if (!description) return;
-      showMessage({
-        message: 'La tarea no puede quedar vacía',
-        type: 'warning',
-      });
+      if (!description)
+        return showMessage({
+          message: 'La tarea no puede quedar vacía',
+          type: 'warning',
+        });
 
       const request = await axios.post(
         'https://ozkavosh-todo-api.glitch.me/task',

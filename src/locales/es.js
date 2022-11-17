@@ -14,6 +14,16 @@ export default {
         placeholderDefault: (field) => `Ingrese su ${field}`,
         placeholderPasswordConfirm: "Confirme su contraseña"
     },
+    signInFields: {
+        email: 'correo',
+        password: 'contraseña'
+    },
+    signUpFields: {
+        email: 'correo',
+        password: 'contraseña',
+        name: 'nombre',
+        passwordConfirm: 'confirmarContraseña'
+    },
     addTask: {
         addTaskBtnTitle: "Agregar tarea"
     }
