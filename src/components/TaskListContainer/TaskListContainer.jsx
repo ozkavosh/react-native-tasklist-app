@@ -1,17 +1,22 @@
 import {View} from 'react-native';
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { show, hide } from '../../features/slices/loaderSlice';
 import TaskListHeader from '../TaskListHeader/TaskListHeader';
 import TaskList from '../TaskList/TaskList';
 import axios from 'axios';
 import { useAuthContext } from '../../context/authContext';
+import styles from './styles';
 
 const TaskListContainer = ({navigation}) => {
   const [tasks, setTasks] = useState([]);
   const { auth } = useAuthContext();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', async () => {
       try {
+        dispatch(show());
         const request = await axios.get(
           'https://ozkavosh-todo-api.glitch.me/task',
           {headers: {Authorization: 'Bearer ' + auth.token}},
@@ -20,6 +25,8 @@ const TaskListContainer = ({navigation}) => {
       } catch (e) {
         console.log(e);
         setTasks([]);
+      } finally {
+        dispatch(hide());
       }
     });
 
@@ -28,18 +35,7 @@ const TaskListContainer = ({navigation}) => {
 
   return (
     <View
-      style={{
-        backgroundColor: 'white',
-        flex: 1,
-        paddingHorizontal: 25,
-        paddingVertical: 15,
-        elevation: 6,
-        borderRadius: 15,
-        shadowColor: '#000',
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.5,
-        shadowRadius: 2,
-      }}>
+      style={styles.taskListContainer}>
       <TaskListHeader navigation={navigation} />
       <TaskList tasks={tasks} />
     </View>

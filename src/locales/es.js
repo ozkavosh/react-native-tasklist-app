@@ -31,6 +31,7 @@ export default {
         emptyField: (field) => `El campo ${field} no puede quedar vacío`
     },
     addTask: {
+        addTaskTitle: "Crear nueva tarea",
         addTaskBtnTitle: "Agregar tarea"
     },
     signIn: {

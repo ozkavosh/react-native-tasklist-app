@@ -1,4 +1,3 @@
-import {View, Text} from 'react-native';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Ellipse from '../../components/Ellipse/Ellipse';
 import {H1, P} from '../../components/Text/Text';
@@ -11,13 +10,18 @@ import t from '../../utils/translate';
 import {showMessage} from 'react-native-flash-message';
 import {useAuthContext} from '../../context/authContext';
 import ADD_TASK_FIELDS from './addTaskFields';
+import { useDispatch } from 'react-redux';
+import { show, hide } from '../../features/slices/loaderSlice';
+import styles from './styles';
 
 const AddTask = () => {
   const [formState, handleInput, validateFields, resetFields] = useForm(ADD_TASK_FIELDS);
+  const dispatch = useDispatch();
   const {auth} = useAuthContext();
 
   const handleSubmit = async () => {
     try {
+      dispatch(show());
       const {[t('formFields.description')]: description} = formState;
       const errors = validateFields(formState);
 
@@ -45,6 +49,8 @@ const AddTask = () => {
         message: e?.response?.request?._response || 'Error inesperado',
         type: 'warning',
       });
+    } finally {
+      dispatch(hide());
     }
   };
 
@@ -52,21 +58,14 @@ const AddTask = () => {
     <MainContainer>
       <Ellipse />
 
+      <H1 mt={325} mb={15}>{t('addTask.addTaskTitle')}</H1>
       <Form
         formState={formState}
         handleInput={handleInput}
-        formStyle={{marginTop: 265}}
-        inputStyle={{
-          borderRadius: 30,
-          height: 50,
-          color: 'black',
-          backgroundColor: 'white',
-          marginBottom: 20,
-          paddingHorizontal: 35,
-        }}
+        inputStyle={styles.input}
       />
 
-      <Button onPress={handleSubmit} title={t('addTask.addTaskBtnTitle')} />
+      <Button style={{ marginTop: 'auto' }} onPress={handleSubmit} title={t('addTask.addTaskBtnTitle')} />
     </MainContainer>
   );
 };

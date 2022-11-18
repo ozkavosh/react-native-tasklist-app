@@ -1,6 +1,7 @@
 import {FlatList} from 'react-native';
 import React from 'react';
 import TaskListItem from '../TaskListItem/TaskListItem';
+import styles from './styles';
 
 const TaskList = ({tasks}) => {
   return (
@@ -9,7 +10,7 @@ const TaskList = ({tasks}) => {
       extraData={tasks}
       keyExtractor={task => task._id}
       renderItem={({item}) => <TaskListItem task={item} />}
-      style={{flex: 1, width: '100%'}}
+      style={styles.taskList}
     />
   );
 };
