@@ -13,8 +13,15 @@ const Form = ({formStyle, inputStyle, formState, handleInput}) => {
           value={formState[field]}
           onChangeText={value => handleInput(field, value)}
           style={inputStyle}
-          secureTextEntry={field === t('signUpFields.password') || field === t('signUpFields.passwordConfirm')}
-          placeholder={field === t('signUpFields.passwordConfirm') ? t('signUp.placeholderPasswordConfirm') : t('signUp.placeholderDefault')(field)}
+          secureTextEntry={
+            field === t('formFields.password') ||
+            field === t('formFields.passwordConfirm')
+          }
+          placeholder={
+            field === t('formFields.passwordConfirm')
+              ? t('form.placeholderPasswordConfirm')
+              : t('form.placeholderDefault')(field)
+          }
         />
       ))}
     </KeyboardAvoidingView>

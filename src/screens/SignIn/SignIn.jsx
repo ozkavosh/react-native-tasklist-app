@@ -9,21 +9,20 @@ import useForm from '../../hooks/useForm';
 import Form from '../../components/Form/Form';
 import handleSubmit from '../../utils/handleSubmit';
 import {useAuthContext} from '../../context/authContext';
-import { H1, P, Span } from '../../components/Text/Text';
+import {H1, P, Span} from '../../components/Text/Text';
+import t from '../../utils/translate';
 
 const SignIn = ({navigation}) => {
   const [formState, handleInput, validateFields, resetFields] =
     useForm(SIGNIN_FIELDS);
   const {setToken} = useAuthContext();
 
-  console.log(formState);
-
   return (
     <MainContainer>
       <Ellipse />
 
       <View style={styles.header}>
-        <H1 mb={15}>Welcome Back!</H1>
+        <H1 mb={15}>{t('signIn.welcomeMessage')}</H1>
         <Image
           source={require('../../assets/login.png')}
           style={styles.headerImg}
@@ -38,7 +37,7 @@ const SignIn = ({navigation}) => {
       />
 
       <P mt={35} mb={45} center primary>
-        Forget password?
+        {t('signIn.passwordMessage')}
       </P>
 
       <Button
@@ -51,16 +50,13 @@ const SignIn = ({navigation}) => {
             postUrl: 'https://ozkavosh-todo-api.glitch.me/user/login',
           })
         }
-        title={'Log in'}
+        title={t('signIn.buttonTitle')}
       />
 
       <P mt={15} center>
-        Don't have an account ?{' '}
-        <Span
-          primary
-          bold
-          onPress={() => navigation.navigate('SignUp')}>
-          Sign up
+        {t('signIn.signUpText')}{' '}
+        <Span primary bold onPress={() => navigation.replace('SignUp')}>
+          {t('signIn.signUpSpanText')}
         </Span>
       </P>
     </MainContainer>

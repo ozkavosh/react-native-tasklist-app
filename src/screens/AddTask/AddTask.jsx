@@ -10,18 +10,20 @@ import axios from 'axios';
 import t from '../../utils/translate';
 import {showMessage} from 'react-native-flash-message';
 import {useAuthContext} from '../../context/authContext';
+import ADD_TASK_FIELDS from './addTaskFields';
 
 const AddTask = () => {
-  const [formState, handleInput] = useForm({description: ''});
+  const [formState, handleInput, validateFields, resetFields] = useForm(ADD_TASK_FIELDS);
   const {auth} = useAuthContext();
 
   const handleSubmit = async () => {
     try {
-      const {description} = formState;
+      const {[t('formFields.description')]: description} = formState;
+      const errors = validateFields(formState);
 
-      if (!description)
+      if (errors.length)
         return showMessage({
-          message: 'La tarea no puede quedar vacía',
+          message: errors.join('\n\n'),
           type: 'warning',
         });
 
@@ -31,7 +33,7 @@ const AddTask = () => {
         {headers: {Authorization: 'Bearer ' + auth.token}},
       );
 
-      console.log(request.data);
+      resetFields();
 
       showMessage({
         message: 'Tarea agregada con éxito',

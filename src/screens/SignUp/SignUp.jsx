@@ -10,6 +10,7 @@ import Form from '../../components/Form/Form';
 import handleSubmit from '../../utils/handleSubmit';
 import {useAuthContext} from '../../context/authContext';
 import {H1, P, Span} from '../../components/Text/Text';
+import t from '../../utils/translate';
 
 const SignUp = ({navigation}) => {
   const [formState, handleInput, validateFields, resetFields] =
@@ -21,8 +22,8 @@ const SignUp = ({navigation}) => {
       <Ellipse />
 
       <View style={styles.header}>
-        <H1 mb={15}>Welcome Onboard!</H1>
-        <P>Let's help you meet up your tasks.</P>
+        <H1 mb={15}>{t('signUp.welcomeMessage')}</H1>
+        <P>{t('signUp.subtitleMessage')}</P>
       </View>
 
       <Form
@@ -41,13 +42,13 @@ const SignUp = ({navigation}) => {
             postUrl: 'https://ozkavosh-todo-api.glitch.me/user/register',
           })
         }
-        title="Register"
+        title={t('signUp.buttonTitle')}
       />
 
       <P mt={15} center>
-        Already have an account ?{' '}
-        <Span bold primary onPress={() => navigation.navigate('SignIn')}>
-          Sign in
+        {t("signUp.signInText")}{' '}
+        <Span bold primary onPress={() => navigation.replace('SignIn')}>
+        {t("signUp.signInSpanText")}
         </Span>
       </P>
     </MainContainer>

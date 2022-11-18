@@ -1,19 +1,14 @@
-import { useEffect } from 'react';
 import {useAuthContext} from '../../context/authContext';
-import { StackActions } from '@react-navigation/native';
+import Replace from '../Replace/Replace';
 
 const NoAuthRoute = ({children, navigation}) => {
   const {auth} = useAuthContext();
 
-  useEffect(() => {
-    if(auth.token){
-      navigation.dispatch(
-        StackActions.replace('Home')
-      );
-    }
-  }, [auth.token]);
-
-  return !auth.token ? children : null;
+  return !auth.token ? (
+    children
+  ) : (
+    <Replace navigation={navigation} where="Home" />
+  );
 };
 
 export default NoAuthRoute;

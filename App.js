@@ -6,11 +6,11 @@ import MainNavigation from './src/components/MainNavigation/MainNavigation';
 
 const App = () => {
   return (
-    <AuthContextProvider>
-      <Provider store={store}>
-        <MainNavigation/>
-      </Provider>
-    </AuthContextProvider>
+    <Provider store={store}>
+      <AuthContextProvider>
+        <MainNavigation />
+      </AuthContextProvider>
+    </Provider>
   );
 };
 

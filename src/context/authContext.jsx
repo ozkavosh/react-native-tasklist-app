@@ -1,4 +1,6 @@
 import {useContext, createContext, useReducer, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {show, hide} from '../features/slices/loaderSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {showMessage} from 'react-native-flash-message';
 import axios from 'axios';
@@ -10,6 +12,7 @@ export const useAuthContext = () => {
 };
 
 export const AuthContextProvider = ({children}) => {
+  const dispatch = useDispatch();
   const INITIAL_AUTH = {token: null, user: null};
 
   const [auth, authDispatch] = useReducer((state, action) => {
@@ -46,21 +49,27 @@ export const AuthContextProvider = ({children}) => {
 
   const logout = async () => {
     try {
+      dispatch(show());
       await AsyncStorage.removeItem('token');
       authDispatch({type: 'LOGOUT'});
     } catch (e) {
       authDispatch({type: 'LOGOUT'});
+    } finally {
+      dispatch(hide());
     }
   };
 
   useEffect(() => {
     (async () => {
       try {
+        dispatch(show());
         const token = await AsyncStorage.getItem('token');
-        if(!token) return logout();
+        if (!token) return logout();
         setToken(token);
       } catch (e) {
         logout();
+      } finally {
+        dispatch(hide());
       }
     })();
   }, []);
@@ -69,6 +78,7 @@ export const AuthContextProvider = ({children}) => {
     if (auth.token) {
       (async () => {
         try {
+          dispatch(show());
           const request = await axios.get(
             'https://ozkavosh-todo-api.glitch.me/user/me',
             {headers: {Authorization: 'Bearer ' + auth.token}},
@@ -78,6 +88,8 @@ export const AuthContextProvider = ({children}) => {
         } catch (e) {
           logout();
           console.log(e);
+        } finally {
+          dispatch(hide());
         }
       })();
     }

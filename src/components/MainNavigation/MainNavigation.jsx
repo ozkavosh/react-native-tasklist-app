@@ -10,6 +10,7 @@ import AuthRoute from '../AuthRoute/AuthRoute';
 import Loader from '../Loader/Loader';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 const Stack = createNativeStackNavigator();
 
 const navigatorTheme = {
@@ -21,6 +22,8 @@ const navigatorTheme = {
 };
 
 const MainNavigation = () => {
+  const { show } = useSelector((state) => state.loader);
+
   return (
     <NavigationContainer theme={navigatorTheme}>
       <StatusBar
@@ -55,6 +58,7 @@ const MainNavigation = () => {
         </Stack.Screen>
         <Stack.Screen name="AddTask" component={AddTask} />
       </Stack.Navigator>
+      { show ? <Loader/> : null }
       <FlashMessage position="top" />
     </NavigationContainer>
   );

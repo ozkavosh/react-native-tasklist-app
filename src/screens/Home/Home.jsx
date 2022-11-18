@@ -1,37 +1,16 @@
-import {View, Image, FlatList} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import {View, Image} from 'react-native';
+import React from 'react';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import styles from './styles';
 import Ellipse from '../../components/Ellipse/Ellipse';
 import Clock from '../../components/Clock/Clock';
 import {useAuthContext} from '../../context/authContext';
 import {H1, P} from '../../components/Text/Text';
-import Button from '../../components/StyledButton/StyledButton';
-import axios from 'axios';
 import t from '../../utils/translate';
-import Checkbox from '../../components/Checkbox/Checkbox';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import TaskListContainer from '../../components/TaskListContainer/TaskListContainer';
 
 const Home = ({navigation}) => {
-  const {auth, logout} = useAuthContext();
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', async () => {
-      try {
-        const request = await axios.get(
-          'https://ozkavosh-todo-api.glitch.me/task',
-          {headers: {Authorization: 'Bearer ' + auth.token}},
-        );
-        setTasks(request.data?.data || []);
-      } catch (e) {
-        console.log(e);
-        setTasks([]);
-      }
-    });
-
-    return () => unsubscribe;
-  }, [navigation]);
+  const {auth} = useAuthContext();
 
   return (
     <MainContainer>
@@ -57,60 +36,9 @@ const Home = ({navigation}) => {
       <Clock />
 
       <P mv={15} bold>
-        Task List
+        {t('home.taskListTitle')}
       </P>
-      <View
-        style={{
-          backgroundColor: 'white',
-          flex: 1,
-          paddingHorizontal: 25,
-          paddingVertical: 15,
-          elevation: 6,
-          borderRadius: 15,
-          shadowColor: '#000',
-          shadowOffset: {width: 0, height: 2},
-          shadowOpacity: 0.5,
-          shadowRadius: 2,
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: 25,
-          }}>
-          <P bold>Daily Tasks</P>
-          <Button
-            style={{
-              width: 32,
-              height: 32,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-            title="+"
-            onPress={() => navigation.navigate('AddTask')}
-            // onPress={logout}
-          />
-        </View>
-        <FlatList
-          data={tasks}
-          extraData={tasks}
-          keyExtractor={item => item._id}
-          renderItem={({item}) => (
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginBottom: 13,
-              }}>
-              <Checkbox style={{marginRight: 5}} />
-              <P>{item.description}</P>
-              <Icon style={{ marginLeft: 'auto'}} name="trash" size={20} color="#000"  />
-            </View>
-          )}
-          style={{flex: 1, width: '100%'}}
-        />
-      </View>
+      <TaskListContainer navigation={navigation} />
     </MainContainer>
   );
 };
