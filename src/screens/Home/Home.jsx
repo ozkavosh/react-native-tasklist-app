@@ -1,4 +1,4 @@
-import {View, Image} from 'react-native';
+import {View, Image, TouchableOpacity, Text} from 'react-native';
 import React from 'react';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import styles from './styles';
@@ -10,7 +10,7 @@ import t from '../../utils/translate';
 import TaskListContainer from '../../components/TaskListContainer/TaskListContainer';
 
 const Home = ({navigation}) => {
-  const {auth} = useAuthContext();
+  const {auth, logout} = useAuthContext();
 
   return (
     <MainContainer>
@@ -18,14 +18,22 @@ const Home = ({navigation}) => {
 
       <View style={styles.userStatusBar}>
         <View style={styles.userAvatar}>
-          {false ? (
+          {true ? (
             <Image
               style={styles.avatarImg}
-              source={{uri: null, width: 128, height: 128}}
+              source={{
+                uri: 'https://static.wikia.nocookie.net/omori/images/8/89/Omori_Neutral_%28No_Background%29.gif/revision/latest?cb=20211217073238&format=original',
+                width: 110,
+                height: 110,
+              }}
             />
           ) : (
             <View style={styles.avatarPlaceHolder} />
           )}
+          <TouchableOpacity onPress={logout}
+            style={styles.logoutBtn}>
+            <Text>X</Text>
+          </TouchableOpacity>
         </View>
 
         <H1 mv={15} light>

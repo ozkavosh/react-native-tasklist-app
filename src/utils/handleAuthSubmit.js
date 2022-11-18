@@ -1,7 +1,7 @@
 import {showMessage} from 'react-native-flash-message';
 import store from '../features/store';
-import { show, hide } from '../features/slices/loaderSlice';
-import t from '../utils/translate';
+import {show, hide} from '../features/slices/loaderSlice';
+import t from './translate';
 import axios from 'axios';
 
 const handleSubmit = async ({
@@ -39,10 +39,12 @@ const handleSubmit = async ({
   } catch (e) {
     console.log(e);
     showMessage({
-      message: e?.response?.request?._response || 'Error inesperado',
+      message:
+        e?.response?.request?._response ||
+        t('displayMessages.defaultErrorMessage'),
       type: 'warning',
     });
-  } finally{
+  } finally {
     store.dispatch(hide());
   }
 };

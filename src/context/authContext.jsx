@@ -4,6 +4,7 @@ import {show, hide} from '../features/slices/loaderSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {showMessage} from 'react-native-flash-message';
 import axios from 'axios';
+import t from '../utils/translate';
 
 const AuthContext = createContext(null);
 
@@ -37,7 +38,7 @@ export const AuthContextProvider = ({children}) => {
 
   const setUser = user => {
     showMessage({
-      message: `Welcome ${user.name}`,
+      message: t('displayMessages.userWelcomeMessage')(user.name),
       type: 'success',
     });
     authDispatch({type: 'SET_USER', payload: user});
@@ -59,6 +60,7 @@ export const AuthContextProvider = ({children}) => {
     }
   };
 
+  //Read token on startup
   useEffect(() => {
     (async () => {
       try {
@@ -74,6 +76,7 @@ export const AuthContextProvider = ({children}) => {
     })();
   }, []);
 
+  //Fetch user on every token change
   useEffect(() => {
     if (auth.token) {
       (async () => {

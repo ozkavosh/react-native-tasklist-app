@@ -7,7 +7,7 @@ import Ellipse from '../../components/Ellipse/Ellipse';
 import SIGNUP_FIELDS from './signUpFields';
 import useForm from '../../hooks/useForm';
 import Form from '../../components/Form/Form';
-import handleSubmit from '../../utils/handleSubmit';
+import handleSubmit from '../../utils/handleAuthSubmit';
 import {useAuthContext} from '../../context/authContext';
 import {H1, P, Span} from '../../components/Text/Text';
 import t from '../../utils/translate';

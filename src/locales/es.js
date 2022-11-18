@@ -47,5 +47,10 @@ export default {
         buttonTitle: 'Registrar',
         signInText: 'Ya tiene cuenta?',
         signInSpanText: 'Ingrese'
+    },
+    displayMessages: {
+        userWelcomeMessage: (user) => `Bienvenido ${user}`,
+        taskCreationSuccessMessage: 'Tarea creada con éxito!',
+        defaultErrorMessage: 'Error inesperado!'
     }
 }

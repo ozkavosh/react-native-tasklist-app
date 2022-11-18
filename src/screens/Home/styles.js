@@ -25,6 +25,15 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     zIndex: -1
   },
+  logoutBtn: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 20,
+    right: 0,
+    bottom: 0
+  }
 })
 
 export default styles;
