@@ -32,7 +32,8 @@ export default {
     },
     addTask: {
         addTaskTitle: "Crear nueva tarea",
-        addTaskBtnTitle: "Agregar tarea"
+        addTaskBtnTitle: "Agregar tarea",
+        checkedText: "Marcar como completado"
     },
     signIn: {
         welcomeMessage: 'Bienvenido de vuelta!',
