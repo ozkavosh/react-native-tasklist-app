@@ -1,4 +1,8 @@
-import {TouchableWithoutFeedback, View} from 'react-native';
+import {
+  TouchableWithoutFeedback,
+  View,
+  KeyboardAvoidingView,
+} from 'react-native';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Ellipse from '../../components/Ellipse/Ellipse';
 import {H1, P} from '../../components/Text/Text';
@@ -12,7 +16,7 @@ import handleSubmit from '../../utils/handleTaskSubmit';
 import ADD_TASK_FIELDS from './addTaskFields';
 import styles from './styles';
 
-const AddTask = ({ navigation }) => {
+const AddTask = ({navigation}) => {
   const [formState, handleInput, validateFields, resetFields] =
     useForm(ADD_TASK_FIELDS);
   const [checked, setChecked] = useState(false);
@@ -38,13 +42,13 @@ const AddTask = ({ navigation }) => {
       </TouchableWithoutFeedback>
 
       <Button
-        style={{marginTop: 'auto'}}
+        style={{marginTop: '70%'}}
         onPress={() =>
           handleSubmit({
             formState,
             validateFields,
             resetFields,
-            goBack: navigation.goBack
+            goBack: navigation.goBack,
           })
         }
         title={t('addTask.addTaskBtnTitle')}

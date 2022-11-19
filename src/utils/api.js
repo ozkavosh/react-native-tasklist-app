@@ -6,7 +6,7 @@ const API_ENDPOINTS = {
   signUp: '/user/register',
   signIn: '/user/login',
   addTask: '/task',
-  getTasks: '/task'
+  getTasks: '/task',
 };
 
 const getEndpoint = key => {
@@ -50,13 +50,13 @@ export const postTask = async taskData => {
 };
 
 export const getTasks = async () => {
-    try {
-      const request = await axios.get(
-        getEndpoint('getTasks'),
-        await getHeadersWithToken(),
-      );
-      return request;
-    } catch (e) {
-      throw e;
-    }
-  };
+  try {
+    const request = await axios.get(
+      getEndpoint('getTasks'),
+      await getHeadersWithToken(),
+    );
+    return request;
+  } catch (e) {
+    throw e;
+  }
+};

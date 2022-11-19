@@ -5,7 +5,7 @@ import React from 'react';
 
 const TaskListEmpty = () => {
   return (
-    <View style={{height: 180, justifyContent: 'center'}}>
+    <View style={{height: 150, justifyContent: 'center'}}>
       <Image
         source={require('../../assets/pointing-line.png')}
         style={{
@@ -13,7 +13,7 @@ const TaskListEmpty = () => {
           height: 75,
           position: 'absolute',
           right: 12,
-          top: 10,
+          top: 5,
         }}
       />
       <P center>{t('home.taskListEmptyMessage')}</P>
