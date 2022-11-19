@@ -3,8 +3,9 @@ export default {
         welcomeMessage: "Bienvenido",
         logoutBtnTitle: "Cerrar sesión",
         addTaskBtnTitle: "Agregar tarea",
-        clockGreetingAM: "Buenos días",
-        clockGreetingPM: "Buenas tardes",
+        clockGreetingMorning: "Buenos días",
+        clockGreetingEvening: "Buenas tardes",
+        clockGreetingNight: "Buenas noches",
         taskListTitle: "Lista de tareas",
         taskListHeaderTitle: "Tareas diarias"
     },

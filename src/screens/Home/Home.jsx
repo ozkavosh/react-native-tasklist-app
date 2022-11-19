@@ -22,16 +22,13 @@ const Home = ({navigation}) => {
             <Image
               style={styles.avatarImg}
               source={{
-                uri: 'https://static.wikia.nocookie.net/omori/images/8/89/Omori_Neutral_%28No_Background%29.gif/revision/latest?cb=20211217073238&format=original',
-                width: 110,
-                height: 110,
+                uri: 'https://static.wikia.nocookie.net/omori/images/8/89/Omori_Neutral_%28No_Background%29.gif',
               }}
             />
           ) : (
             <View style={styles.avatarPlaceHolder} />
           )}
-          <TouchableOpacity onPress={logout}
-            style={styles.logoutBtn}>
+          <TouchableOpacity onPress={logout} style={styles.logoutBtn}>
             <Text>X</Text>
           </TouchableOpacity>
         </View>

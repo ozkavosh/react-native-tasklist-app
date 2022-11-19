@@ -8,6 +8,8 @@ const styles = StyleSheet.create({
     borderRadius: 60,
   },
   avatarImg: {
+    width: 110,
+    height: 110,
     borderRadius: 60,
     borderWidth: 3,
     borderColor: 'white',
