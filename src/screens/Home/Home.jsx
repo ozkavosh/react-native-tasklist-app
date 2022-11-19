@@ -19,11 +19,11 @@ const Home = ({navigation}) => {
       <View style={styles.userStatusBar}>
         <View style={styles.userAvatar}>
           {true ? (
-            <Image
-              style={styles.avatarImg}
+            <Image 
               source={{
-                uri: 'https://static.wikia.nocookie.net/omori/images/8/89/Omori_Neutral_%28No_Background%29.gif',
+                uri: 'https://static.wikia.nocookie.net/omori/images/c/ce/Omori_Portrait.png',
               }}
+              style={styles.avatarImg}
             />
           ) : (
             <View style={styles.avatarPlaceHolder} />

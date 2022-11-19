@@ -39,7 +39,7 @@ const SignUp = ({navigation}) => {
             validateFields,
             resetFields,
             setToken,
-            postUrl: 'https://ozkavosh-todo-api.glitch.me/user/register',
+            type: 'signUp',
           })
         }
         title={t('signUp.buttonTitle')}

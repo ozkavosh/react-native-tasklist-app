@@ -7,7 +7,9 @@ export default {
         clockGreetingEvening: "Buenas tardes",
         clockGreetingNight: "Buenas noches",
         taskListTitle: "Lista de tareas",
-        taskListHeaderTitle: "Tareas diarias"
+        taskListHeaderTitle: "Tareas diarias",
+        taskListEmptyMessage: "Su lista esta vacía",
+        taskListEmptySpanMessage: "Agregue algunas tareas!"
     },
     onBoarding: {
         headingText: "Completa tus tareas con TODo!",

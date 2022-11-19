@@ -2,14 +2,14 @@ import {showMessage} from 'react-native-flash-message';
 import store from '../features/store';
 import {show, hide} from '../features/slices/loaderSlice';
 import t from './translate';
-import axios from 'axios';
+import {postSignIn, postSignUp} from './api';
 
 const handleSubmit = async ({
   formState,
   validateFields,
   resetFields,
-  postUrl,
   setToken,
+  type,
 }) => {
   try {
     store.dispatch(show());
@@ -26,11 +26,10 @@ const handleSubmit = async ({
         type: 'warning',
       });
 
-    const request = await axios.post(postUrl, {
-      email,
-      password,
-      name,
-    });
+    const request =
+      type === 'signUp'
+        ? await postSignUp({name, email, password})
+        : await postSignIn({email, password});
 
     resetFields();
 

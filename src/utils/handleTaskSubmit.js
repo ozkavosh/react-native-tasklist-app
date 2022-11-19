@@ -1,10 +1,10 @@
-import axios from 'axios';
 import store from '../features/store';
 import { show, hide } from '../features/slices/loaderSlice';
 import t from './translate';
 import {showMessage} from 'react-native-flash-message';
+import { postTask } from './api';
 
-const handleSubmit = async ({ formState, token, validateFields, resetFields }) => {
+const handleSubmit = async ({ formState, validateFields, resetFields, goBack }) => {
     try {
       store.dispatch(show());
       const {[t('formFields.description')]: description} = formState;
@@ -16,22 +16,20 @@ const handleSubmit = async ({ formState, token, validateFields, resetFields }) =
           type: 'warning',
         });
 
-      const request = await axios.post(
-        'https://ozkavosh-todo-api.glitch.me/task',
-        {description},
-        {headers: {Authorization: 'Bearer ' + token}},
-      );
+      const request = await postTask({ description });
 
       resetFields();
 
       showMessage({
-        message: 'Tarea agregada con éxito',
+        message: t('displayMessages.taskCreationSuccessMessage'),
         type: 'success',
       });
+
+      goBack();
     } catch (e) {
       console.log(e);
       showMessage({
-        message: e?.response?.request?._response || 'Error inesperado',
+        message: e?.response?.request?._response || t('displayMessages.defaultErrorMessage'),
         type: 'warning',
       });
     } finally {
