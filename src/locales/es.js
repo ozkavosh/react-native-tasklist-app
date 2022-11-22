@@ -12,8 +12,12 @@ export default {
         taskListEmptySpanMessage: "Agregue algunas tareas!"
     },
     onBoarding: {
-        headingText: "Completa tus tareas con TODo!",
-        getStartedBtnTitle: "Comenzar"
+        headingText: "Complete sus tareas con TODo!",
+        getStartedBtnTitle: "Comenzar",
+        closingAlertTitle: "Espere!",
+        closingAlertMessage: "¿Está seguro de salir de TODo?",
+        closingAlertCancelBtn: "Cancelar",
+        closingAlertConfirmBtn: "Si"
     },
     form: {
         placeholderDefault: (field) => `Ingrese su ${field}`,
@@ -57,6 +61,7 @@ export default {
         taskCreationSuccessMessage: 'Tarea creada con éxito!',
         defaultErrorMessage: 'Error inesperado!',
         AE1: 'No se encontró el usuario ingresado',
-        AE2: 'La contraseña no coincide'
+        AE2: 'La contraseña no coincide',
+        AE3: 'El email ingresado ya está en uso'
     },
 }

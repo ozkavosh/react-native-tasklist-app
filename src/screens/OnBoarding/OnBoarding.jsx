@@ -1,5 +1,5 @@
-import {View, Image} from 'react-native';
-import React from 'react';
+import {View, Image, BackHandler, Alert} from 'react-native';
+import React, {useEffect} from 'react';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../components/StyledButton/StyledButton';
 import styles from './styles';
@@ -8,6 +8,34 @@ import {H1, P} from '../../components/Text/Text';
 import t from '../../utils/translate';
 
 const OnBoarding = ({navigation}) => {
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert(
+        t('onBoarding.closingAlertTitle'),
+        t('onBoarding.closingAlertMessage'),
+        [
+          {
+            text: t('onBoarding.closingAlertCancelBtn'),
+            onPress: () => null,
+            style: 'cancel',
+          },
+          {
+            text: t('onBoarding.closingAlertConfirmBtn'),
+            onPress: () => BackHandler.exitApp(),
+          },
+        ],
+      );
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, []);
+
   return (
     <MainContainer style={{alignItems: 'center'}}>
       <Ellipse />

@@ -38,8 +38,7 @@ const handleSubmit = async ({
   } catch (e) {
     showMessage({
       message:
-        e.message ||
-        t('displayMessages.defaultErrorMessage'),
+        e.message,
       type: 'warning',
     });
   } finally {

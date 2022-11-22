@@ -10,7 +10,7 @@ import AuthRoute from '../AuthRoute/AuthRoute';
 import Loader from '../Loader/Loader';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 const Stack = createNativeStackNavigator();
 
 const navigatorTheme = {
@@ -22,7 +22,7 @@ const navigatorTheme = {
 };
 
 const MainNavigation = () => {
-  const { show } = useSelector((state) => state.loader);
+  const {show} = useSelector(state => state.loader);
 
   return (
     <NavigationContainer theme={navigatorTheme}>
@@ -33,7 +33,9 @@ const MainNavigation = () => {
       />
       <Stack.Navigator
         initialRouteName="OnBoarding"
-        screenOptions={{headerShown: false}}>
+        screenOptions={{
+          headerShown: false,
+        }}>
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
         <Stack.Screen name="SignIn">
           {props => (
@@ -58,7 +60,7 @@ const MainNavigation = () => {
         </Stack.Screen>
         <Stack.Screen name="AddTask" component={AddTask} />
       </Stack.Navigator>
-      { show ? <Loader/> : null }
+      {show ? <Loader /> : null}
       <FlashMessage position="top" />
     </NavigationContainer>
   );

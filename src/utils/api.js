@@ -26,7 +26,9 @@ export const postSignUp = async userData => {
     return request;
   } catch (e) {
     log.warn(e.response);
-    throw new Error(t(`displayMessages.${e.response.data.code}`));
+    throw new Error(
+      t(`displayMessages.${e.response?.data?.code || 'defaultErrorMessage'}`),
+    );
   }
 };
 
@@ -36,7 +38,9 @@ export const postSignIn = async userData => {
     return request;
   } catch (e) {
     log.warn(e.response);
-    throw new Error(t(`displayMessages.${e.response.data.code}`));
+    throw new Error(
+      t(`displayMessages.${e.response?.data?.code || 'defaultErrorMessage'}`),
+    );
   }
 };
 
@@ -50,7 +54,9 @@ export const postTask = async taskData => {
     return request;
   } catch (e) {
     log.warn(e.response);
-    throw new Error(t(`displayMessages.${e.response.data.code}`));
+    throw new Error(
+      t(`displayMessages.${e.response?.data?.code || 'defaultErrorMessage'}`),
+    );
   }
 };
 
@@ -63,6 +69,8 @@ export const getTasks = async () => {
     return request;
   } catch (e) {
     log.warn(e.response);
-    throw new Error(t(`displayMessages.${e.response.data.code}`));
+    throw new Error(
+      t(`displayMessages.${e.response?.data?.code || 'defaultErrorMessage'}`),
+    );
   }
 };
