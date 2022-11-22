@@ -1,6 +1,8 @@
 import {API_BASE_URL} from '@env';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import t from './translate';
 import axios from 'axios';
+import log from './log';
 
 const API_ENDPOINTS = {
   signUp: '/user/register',
@@ -23,7 +25,8 @@ export const postSignUp = async userData => {
     const request = await axios.post(getEndpoint('signUp'), userData);
     return request;
   } catch (e) {
-    throw e;
+    log.warn(e.response);
+    throw new Error(t(`displayMessages.${e.response.data.code}`));
   }
 };
 
@@ -32,7 +35,8 @@ export const postSignIn = async userData => {
     const request = await axios.post(getEndpoint('signIn'), userData);
     return request;
   } catch (e) {
-    throw e;
+    log.warn(e.response);
+    throw new Error(t(`displayMessages.${e.response.data.code}`));
   }
 };
 
@@ -45,7 +49,8 @@ export const postTask = async taskData => {
     );
     return request;
   } catch (e) {
-    throw e;
+    log.warn(e.response);
+    throw new Error(t(`displayMessages.${e.response.data.code}`));
   }
 };
 
@@ -57,6 +62,7 @@ export const getTasks = async () => {
     );
     return request;
   } catch (e) {
-    throw e;
+    log.warn(e.response);
+    throw new Error(t(`displayMessages.${e.response.data.code}`));
   }
 };

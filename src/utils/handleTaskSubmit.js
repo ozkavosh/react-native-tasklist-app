@@ -27,9 +27,8 @@ const handleSubmit = async ({ formState, validateFields, resetFields, goBack }) 
 
       goBack();
     } catch (e) {
-      console.log(e);
       showMessage({
-        message: e?.response?.request?._response || t('displayMessages.defaultErrorMessage'),
+        message: e.message || t('displayMessages.defaultErrorMessage'),
         type: 'warning',
       });
     } finally {

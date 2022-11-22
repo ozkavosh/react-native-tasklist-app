@@ -36,6 +36,7 @@
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.72.3",
     "react-native-dotenv": "^3.4.2",
+    "react-native-logs": "^5.0.1",
     "react-test-renderer": "18.1.0",
     "reactotron-react-native": "^5.0.3"
   },

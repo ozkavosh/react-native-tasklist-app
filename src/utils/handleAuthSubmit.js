@@ -36,10 +36,9 @@ const handleSubmit = async ({
     const {token} = request.data;
     setToken(token);
   } catch (e) {
-    console.log(e);
     showMessage({
       message:
-        e?.response?.request?._response ||
+        e.message ||
         t('displayMessages.defaultErrorMessage'),
       type: 'warning',
     });

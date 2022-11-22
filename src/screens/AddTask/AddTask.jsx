@@ -1,7 +1,6 @@
 import {
   TouchableWithoutFeedback,
   View,
-  KeyboardAvoidingView,
 } from 'react-native';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Ellipse from '../../components/Ellipse/Ellipse';

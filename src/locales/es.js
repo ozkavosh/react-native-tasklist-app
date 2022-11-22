@@ -55,6 +55,8 @@ export default {
     displayMessages: {
         userWelcomeMessage: (user) => `Bienvenido ${user}`,
         taskCreationSuccessMessage: 'Tarea creada con éxito!',
-        defaultErrorMessage: 'Error inesperado!'
-    }
+        defaultErrorMessage: 'Error inesperado!',
+        AE1: 'No se encontró el usuario ingresado',
+        AE2: 'La contraseña no coincide'
+    },
 }
