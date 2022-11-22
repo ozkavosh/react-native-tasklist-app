@@ -1,4 +1,5 @@
 import es from '../locales/es';
+import en from '../locales/en';
 
 const t = key => {
   const split = key.split('.');
@@ -6,7 +7,7 @@ const t = key => {
   return (
     split.reduce((acc, item) => {
       return acc[item];
-    }, es) ?? key
+    }, en) ?? key
   );
 };
 

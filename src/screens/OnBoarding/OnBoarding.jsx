@@ -49,9 +49,7 @@ const OnBoarding = ({navigation}) => {
       </View>
 
       <P mb={135} center style={styles.p}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, tempora.
-        Esse natus suscipit cumque perspiciatis eos, aliquam quae ducimus iure
-        quasi.
+        {t('onBoarding.descriptionText')}
       </P>
 
       <Button
