@@ -7,7 +7,7 @@ const t = key => {
   return (
     split.reduce((acc, item) => {
       return acc[item];
-    }, en) ?? key
+    }, es) ?? key
   );
 };
 

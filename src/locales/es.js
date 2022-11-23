@@ -10,6 +10,9 @@ export default {
     taskListHeaderTitle: 'Tareas diarias',
     taskListEmptyMessage: 'Su lista esta vacía',
     taskListEmptySpanMessage: 'Agregue algunas tareas!',
+    taskDeletionConfirmMessage: '¿Está seguro de eliminar la tarea?',
+    taskDeletionConfirmBtn: 'Eliminar',
+    taskDeletionCancelBtn: 'Cancelar'
   },
   onBoarding: {
     headingText: 'Complete sus tareas con TODo!',
@@ -60,6 +63,7 @@ export default {
   displayMessages: {
     userWelcomeMessage: user => `Bienvenido ${user}`,
     taskCreationSuccessMessage: 'Tarea creada con éxito!',
+    taskDeletionSuccessMessage: 'Tarea eliminada con éxito',
     defaultErrorMessage: 'Error inesperado!',
     AE1: 'No se encontró el usuario ingresado',
     AE2: 'La contraseña no coincide',

@@ -14,7 +14,7 @@ const TaskList = ({tasks, setTasks}) => {
       data={tasks}
       extraData={tasks}
       keyExtractor={task => task._id}
-      renderItem={({item}) => <TaskListItem task={item} />}
+      renderItem={({item}) => <TaskListItem task={item} setTasks={setTasks}/>}
       refreshControl={
         <RefreshControl
           onRefresh={() => fetchTasks({setTasks})}

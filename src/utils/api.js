@@ -9,6 +9,8 @@ const API_ENDPOINTS = {
   signIn: '/user/login',
   addTask: '/task',
   getTasks: '/task',
+  updateTask: `/task/:id`,
+  deleteTask: `/task/:id`,
 };
 
 const getEndpoint = key => {
@@ -64,6 +66,36 @@ export const getTasks = async () => {
   try {
     const request = await axios.get(
       getEndpoint('getTasks'),
+      await getHeadersWithToken(),
+    );
+    return request;
+  } catch (e) {
+    log.warn(e.response);
+    throw new Error(
+      t(`displayMessages.${e.response?.data?.code || 'defaultErrorMessage'}`),
+    );
+  }
+};
+
+export const updateTask = async taskId => {
+  try {
+    const request = await axios.put(
+      getEndpoint('updateTask').replace(':id', taskId),
+      await getHeadersWithToken(),
+    );
+    return request;
+  } catch (e) {
+    log.warn(e.response);
+    throw new Error(
+      t(`displayMessages.${e.response?.data?.code || 'defaultErrorMessage'}`),
+    );
+  }
+};
+
+export const deleteTask = async taskId => {
+  try {
+    const request = await axios.delete(
+      getEndpoint('deleteTask').replace(':id', taskId),
       await getHeadersWithToken(),
     );
     return request;

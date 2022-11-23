@@ -1,0 +1,9 @@
+{
+    "docify.intelligentDetection": false,
+    "docify.programmingLanguage": "javascript",
+    "docify.sidePanelReviewMode": false,
+    "docify.style": "Doxygen",
+    "cSpell.words": [
+        "Pressable"
+    ]
+}
