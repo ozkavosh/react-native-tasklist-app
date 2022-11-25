@@ -1,14 +1,16 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  taskListItem: {
-    flexDirection: 'row',
+  loader: {
+    position: 'absolute',
+    backgroundColor: '#EDEDEE',
+    flex: 1,
+    width: '100%',
+    height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 13,
-    paddingRight: 9
+    paddingVertical: 15,
   },
-  checkBox: {marginRight: 5},
 });
 
 export default styles;

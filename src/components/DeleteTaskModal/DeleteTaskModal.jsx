@@ -9,7 +9,7 @@ import styles from './styles';
 const DeleteTaskModal = ({visibleModal, setVisibleModal, task, setTasks}) => {
   return (
     <Modal
-      animationType="slide"
+      animationType="fade"
       transparent={true}
       statusBarTranslucent={true}
       visible={visibleModal}

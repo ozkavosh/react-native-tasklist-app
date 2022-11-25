@@ -14,18 +14,20 @@ import CheckBox from '../../components/Checkbox/Checkbox';
 import handleSubmit from '../../utils/handleTaskSubmit';
 import ADD_TASK_FIELDS from './addTaskFields';
 import styles from './styles';
+import { useNavigationState } from '@react-navigation/native';
 
 const AddTask = ({navigation}) => {
+  const task = useNavigationState(state => state.routes.find(route => route.name === "AddTask").params?.task);
   const [formState, handleInput, validateFields, resetFields] =
-    useForm(ADD_TASK_FIELDS);
-  const [checked, setChecked] = useState(false);
+    useForm(task ? { description: task.description } : ADD_TASK_FIELDS);
+  const [completed, setCompleted] = useState(task ? task.completed : false);
 
   return (
     <MainContainer>
       <Ellipse />
 
       <H1 mt={325} mb={15}>
-        {t('addTask.addTaskTitle')}
+        {task ? "Editar tarea" : t('addTask.addTaskTitle')}
       </H1>
       <Form
         formState={formState}
@@ -33,9 +35,9 @@ const AddTask = ({navigation}) => {
         inputStyle={styles.input}
       />
 
-      <TouchableWithoutFeedback onPress={() => setChecked(prev => !prev)}>
+      <TouchableWithoutFeedback onPress={() => setCompleted(prev => !prev)}>
         <View style={{flexDirection: 'row', paddingHorizontal: 15}}>
-          <CheckBox checked={checked} style={{marginRight: 5}} />
+          <CheckBox checked={completed} style={{marginRight: 5}} />
           <P>{t('addTask.checkedText')}</P>
         </View>
       </TouchableWithoutFeedback>
@@ -45,12 +47,14 @@ const AddTask = ({navigation}) => {
         onPress={() =>
           handleSubmit({
             formState,
+            completed,
             validateFields,
+            task: task && { _id: task._id, completed, description: formState.description },
             resetFields,
             goBack: navigation.goBack,
           })
         }
-        title={t('addTask.addTaskBtnTitle')}
+        title={task ? "Editar Tarea" : t('addTask.addTaskBtnTitle')}
       />
     </MainContainer>
   );

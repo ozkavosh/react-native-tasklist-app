@@ -3,7 +3,7 @@ import fetchTasks from './fetchTasks';
 import {showMessage} from 'react-native-flash-message';
 import t from './translate';
 
-const handleDelete = async ({ task, setVisibleModal, setTasks }) => {
+const handleDelete = async ({task, setVisibleModal, setTasks}) => {
   try {
     setVisibleModal(false);
     await deleteTask(task?._id);
@@ -13,7 +13,10 @@ const handleDelete = async ({ task, setVisibleModal, setTasks }) => {
       type: 'success',
     });
   } catch (e) {
-    console.log(e);
+    showMessage({
+      message: e.message,
+      type: 'error',
+    });
   }
 };
 

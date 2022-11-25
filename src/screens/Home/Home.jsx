@@ -8,6 +8,7 @@ import {useAuthContext} from '../../context/authContext';
 import {H1, P} from '../../components/Text/Text';
 import t from '../../utils/translate';
 import TaskListContainer from '../../components/TaskListContainer/TaskListContainer';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const Home = ({navigation}) => {
   const {auth, logout} = useAuthContext();
@@ -29,7 +30,7 @@ const Home = ({navigation}) => {
             <View style={styles.avatarPlaceHolder} />
           )}
           <TouchableOpacity onPress={logout} style={styles.logoutBtn}>
-            <Text>X</Text>
+            <Icon name="close" size={18} />
           </TouchableOpacity>
         </View>
 

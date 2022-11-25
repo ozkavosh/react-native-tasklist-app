@@ -30,9 +30,9 @@ const styles = StyleSheet.create({
   logoutBtn: {
     position: 'absolute',
     backgroundColor: 'white',
-    paddingHorizontal: 10,
+    paddingHorizontal: 5,
     paddingVertical: 5,
-    borderRadius: 20,
+    borderRadius: 30,
     right: 0,
     bottom: 0
   }

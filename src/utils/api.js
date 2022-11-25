@@ -77,10 +77,11 @@ export const getTasks = async () => {
   }
 };
 
-export const updateTask = async taskId => {
+export const updateTask = async ({taskId, description, completed}) => {
   try {
     const request = await axios.put(
       getEndpoint('updateTask').replace(':id', taskId),
+      {description, completed},
       await getHeadersWithToken(),
     );
     return request;

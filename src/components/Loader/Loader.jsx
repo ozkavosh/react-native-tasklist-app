@@ -1,19 +1,14 @@
-import {View, ActivityIndicator} from 'react-native';
+import {View, ActivityIndicator, Image} from 'react-native';
+import { H1, P } from '../Text/Text';
 import React from 'react';
+import styles from './styles';
 
 const Loader = () => {
   return (
     <View
-      style={{
-        position: 'absolute',
-        backgroundColor: '#0000001d',
-        flex: 1,
-        width: '100%',
-        height: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <ActivityIndicator size="large" color="#50C2C9" />
+      style={styles.loader}>
+      {/* <ActivityIndicator size="large" color="white" /> */}
+      <Image source={require('../../assets/loading.gif')} style={{ width: 110, height: 100 }} />
     </View>
   );
 };
