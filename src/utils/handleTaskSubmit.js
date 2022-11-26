@@ -1,7 +1,7 @@
 import store from '../features/store';
 import {show, hide} from '../features/slices/loaderSlice';
 import t from './translate';
-import {showMessage} from 'react-native-flash-message';
+import showMessage from './showMessage';
 import {postTask, updateTask} from './api';
 
 const handleSubmit = async ({
@@ -19,6 +19,7 @@ const handleSubmit = async ({
 
     if (errors.length)
       return showMessage({
+        title: "Error!",
         message: errors.join('\n\n'),
         type: 'warning',
       });
@@ -34,6 +35,7 @@ const handleSubmit = async ({
     resetFields();
 
     showMessage({
+      title: "Éxito!",
       message: t('displayMessages.taskCreationSuccessMessage'),
       type: 'success',
     });
@@ -41,6 +43,7 @@ const handleSubmit = async ({
     goBack();
   } catch (e) {
     showMessage({
+      title: "Error!",
       message: e.message,
       type: 'warning',
     });

@@ -2,7 +2,7 @@ import {useContext, createContext, useReducer, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {show, hide} from '../features/slices/loaderSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {showMessage} from 'react-native-flash-message';
+import showMessage from '../utils/showMessage';
 import axios from 'axios';
 import t from '../utils/translate';
 
@@ -38,6 +38,7 @@ export const AuthContextProvider = ({children}) => {
 
   const setUser = user => {
     showMessage({
+      title: 'Éxito!',
       message: t('displayMessages.userWelcomeMessage')(user.name),
       type: 'success',
     });

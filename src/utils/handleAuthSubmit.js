@@ -1,4 +1,4 @@
-import {showMessage} from 'react-native-flash-message';
+import showMessage from './showMessage';
 import store from '../features/store';
 import {show, hide} from '../features/slices/loaderSlice';
 import t from './translate';
@@ -22,6 +22,7 @@ const handleSubmit = async ({
 
     if (errors.length)
       return showMessage({
+        title: 'Error!',
         message: errors.join('\n\n'),
         type: 'warning',
       });
@@ -37,6 +38,7 @@ const handleSubmit = async ({
     setToken(token);
   } catch (e) {
     showMessage({
+      title: 'Error!',
       message:
         e.message,
       type: 'warning',

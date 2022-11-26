@@ -10,7 +10,6 @@ import useForm from '../../hooks/useForm';
 import React, {useState} from 'react';
 import Button from '../../components/StyledButton/StyledButton';
 import t from '../../utils/translate';
-import CheckBox from '../../components/Checkbox/Checkbox';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import handleSubmit from '../../utils/handleTaskSubmit';
 import ADD_TASK_FIELDS from './addTaskFields';
@@ -27,7 +26,7 @@ const AddTask = ({navigation}) => {
     <MainContainer>
       <Ellipse />
 
-      <H1 mt={325} mb={15}>
+      <H1 mt={325} mb={35}>
         {task ? "Editar tarea" : t('addTask.addTaskTitle')}
       </H1>
       <Form
@@ -44,7 +43,7 @@ const AddTask = ({navigation}) => {
       </TouchableWithoutFeedback>
 
       <Button
-        style={{marginTop: '70%'}}
+        style={{marginTop: '60%'}}
         onPress={() =>
           handleSubmit({
             formState,
