@@ -11,6 +11,7 @@ import React, {useState} from 'react';
 import Button from '../../components/StyledButton/StyledButton';
 import t from '../../utils/translate';
 import CheckBox from '../../components/Checkbox/Checkbox';
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 import handleSubmit from '../../utils/handleTaskSubmit';
 import ADD_TASK_FIELDS from './addTaskFields';
 import styles from './styles';
@@ -36,8 +37,8 @@ const AddTask = ({navigation}) => {
       />
 
       <TouchableWithoutFeedback onPress={() => setCompleted(prev => !prev)}>
-        <View style={{flexDirection: 'row', paddingHorizontal: 15}}>
-          <CheckBox checked={completed} style={{marginRight: 5}} />
+        <View style={{flexDirection: 'row', paddingHorizontal: 15, alignItems: 'center'}}>
+          <BouncyCheckbox fillColor='#50C2C9' isChecked={completed} disableBuiltInState onPress={() => setCompleted(prev => !prev)}/>
           <P>{t('addTask.checkedText')}</P>
         </View>
       </TouchableWithoutFeedback>

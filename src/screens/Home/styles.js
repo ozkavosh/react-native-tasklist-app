@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     width: '112%',
     alignItems: 'center',
     marginBottom: 20,
-    paddingTop: 100,
+    paddingTop: 80,
     zIndex: -1
   },
   logoutBtn: {

@@ -1,15 +1,16 @@
 import store from '../features/store';
+import { setTasks } from '../features/slices/taskSlice';
 import { show, hide } from '../features/slices/loaderSlice';
 import { getTasks } from './api';
 
-const fetchTasks = async ({ setTasks }) => {
+const fetchTasks = async () => {
   try {
     store.dispatch(show());
     const request = await getTasks();
-    setTasks(request.data?.data || []);
+    store.dispatch(setTasks(request.data?.data || []));
   } catch (e) {
     console.log(e);
-    setTasks([]);
+    store.dispatch(setTasks([]));
   } finally {
     store.dispatch(hide());
   }

@@ -1,19 +1,20 @@
 import {View} from 'react-native';
 import {P} from '../Text/Text';
 import React, {useState} from 'react';
-import Checkbox from '../Checkbox/Checkbox';
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 import DeleteTaskModal from '../DeleteTaskModal/DeleteTaskModal';
 import {useNavigation} from '@react-navigation/native';
+import checkTask from '../../utils/checkTask';
 
-const TaskListItem = ({task, setTasks}) => {
+const TaskListItem = ({task}) => {
   const [visibleModal, setVisibleModal] = useState(false);
   const navigation = useNavigation();
 
   return (
     <View style={styles.taskListItem}>
-      <Checkbox checked={task?.completed} style={styles.checkBox} />
+      <BouncyCheckbox fillColor='#50C2C9' isChecked={task?.completed} disableBuiltInState onPress={()=> checkTask(task)}/>
       <P>{task?.description}</P>
       <Icon
         style={{marginLeft: 'auto'}}
@@ -33,7 +34,6 @@ const TaskListItem = ({task, setTasks}) => {
         <DeleteTaskModal
           setVisibleModal={setVisibleModal}
           task={task}
-          setTasks={setTasks}
         />
       )}
     </View>

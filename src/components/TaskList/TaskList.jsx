@@ -6,22 +6,22 @@ import styles from './styles';
 import fetchTasks from '../../utils/fetchTasks';
 import TaskListEmpty from '../TaskListEmpty/TaskListEmpty';
 
-const TaskList = ({tasks, setTasks}) => {
-  const {show} = useSelector(state => state.loader);
+const TaskList = () => {
+  const {
+    loader: {show},
+    task: {tasks},
+  } = useSelector(state => state);
 
   return (
     <FlatList
       data={tasks}
       extraData={tasks}
       keyExtractor={task => task._id}
-      renderItem={({item}) => <TaskListItem task={item} setTasks={setTasks}/>}
+      renderItem={({item}) => <TaskListItem task={item} />}
       refreshControl={
-        <RefreshControl
-          onRefresh={() => fetchTasks({setTasks})}
-          refreshing={show}
-        />
+        <RefreshControl onRefresh={() => fetchTasks()} refreshing={show} />
       }
-      ListEmptyComponent={<TaskListEmpty/>}
+      ListEmptyComponent={<TaskListEmpty />}
       style={styles.taskList}
     />
   );

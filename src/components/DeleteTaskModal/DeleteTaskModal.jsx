@@ -6,7 +6,7 @@ import t from '../../utils/translate';
 import React from 'react';
 import styles from './styles';
 
-const DeleteTaskModal = ({visibleModal, setVisibleModal, task, setTasks}) => {
+const DeleteTaskModal = ({visibleModal, setVisibleModal, task}) => {
   return (
     <Modal
       animationType="fade"
@@ -25,7 +25,7 @@ const DeleteTaskModal = ({visibleModal, setVisibleModal, task, setTasks}) => {
           <View style={styles.buttonContainer}>
             <Button
               style={styles.button}
-              onPress={() => handleDelete({ task, setVisibleModal, setTasks })}
+              onPress={() => handleDelete({task, setVisibleModal})}
               title={t('home.taskDeletionConfirmBtn')}
             />
             <Button

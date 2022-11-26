@@ -60,8 +60,8 @@ const MainNavigation = () => {
         </Stack.Screen>
         <Stack.Screen name="AddTask" component={AddTask} />
       </Stack.Navigator>
-      {show ? <Loader /> : null}
       <FlashMessage position="top" />
+      {show ? <Loader /> : null}
     </NavigationContainer>
   );
 };

@@ -7,7 +7,7 @@ export const taskSlice = createSlice({
   },
   reducers: {
     setTasks: (state, action) => {
-      state.tasks = [...state.tasks, action.payload];
+      state.tasks = action.payload;
     },
   },
 });

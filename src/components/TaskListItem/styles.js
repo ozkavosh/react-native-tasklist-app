@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     marginBottom: 13,
     paddingRight: 9
   },
-  checkBox: {marginRight: 5},
+  checkBox: {marginRight: 10},
 });
 
 export default styles;
