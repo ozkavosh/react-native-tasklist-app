@@ -12,6 +12,7 @@ const StyledButtonText = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 18px;
+  text-transform: capitalize;
 `;
 
 const Button = (props) => {

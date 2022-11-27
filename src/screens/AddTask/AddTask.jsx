@@ -1,7 +1,4 @@
-import {
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
+import {TouchableWithoutFeedback, View, Image} from 'react-native';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Ellipse from '../../components/Ellipse/Ellipse';
 import {H1, P} from '../../components/Text/Text';
@@ -10,24 +7,32 @@ import useForm from '../../hooks/useForm';
 import React, {useState} from 'react';
 import Button from '../../components/StyledButton/StyledButton';
 import t from '../../utils/translate';
-import BouncyCheckbox from "react-native-bouncy-checkbox";
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import handleSubmit from '../../utils/handleTaskSubmit';
 import ADD_TASK_FIELDS from './addTaskFields';
 import styles from './styles';
-import { useNavigationState } from '@react-navigation/native';
+import {useNavigationState} from '@react-navigation/native';
 
 const AddTask = ({navigation}) => {
-  const task = useNavigationState(state => state.routes.find(route => route.name === "AddTask").params?.task);
-  const [formState, handleInput, validateFields, resetFields] =
-    useForm(task ? { description: task.description } : ADD_TASK_FIELDS);
+  const task = useNavigationState(
+    state => state.routes.find(route => route.name === 'AddTask').params?.task,
+  );
+  const [formState, handleInput, validateFields, resetFields] = useForm(
+    task ? {description: task.description} : ADD_TASK_FIELDS,
+  );
   const [completed, setCompleted] = useState(task ? task.completed : false);
 
   return (
     <MainContainer>
       <Ellipse />
 
-      <H1 mt={325} mb={35}>
-        {task ? "Editar tarea" : t('addTask.addTaskTitle')}
+      <Image
+        source={require('../../assets/add-task.png')}
+        style={{width: 320, height: 240, marginTop: '35%'}}
+      />
+
+      <H1 mt={15} mb={30}>
+        {task ? t('addTask.editTaskTitle') : t('addTask.addTaskTitle')}
       </H1>
       <Form
         formState={formState}
@@ -36,25 +41,41 @@ const AddTask = ({navigation}) => {
       />
 
       <TouchableWithoutFeedback onPress={() => setCompleted(prev => !prev)}>
-        <View style={{flexDirection: 'row', paddingHorizontal: 15, alignItems: 'center'}}>
-          <BouncyCheckbox fillColor='#50C2C9' isChecked={completed} disableBuiltInState onPress={() => setCompleted(prev => !prev)}/>
+        <View
+          style={{
+            flexDirection: 'row',
+            paddingHorizontal: 5,
+            alignItems: 'center',
+          }}>
+          <BouncyCheckbox
+            fillColor="#50C2C9"
+            isChecked={completed}
+            disableBuiltInState
+            onPress={() => setCompleted(prev => !prev)}
+          />
           <P>{t('addTask.checkedText')}</P>
         </View>
       </TouchableWithoutFeedback>
 
       <Button
-        style={{marginTop: '60%'}}
+        style={{marginTop: '40%'}}
         onPress={() =>
           handleSubmit({
             formState,
             completed,
             validateFields,
-            task: task && { _id: task._id, completed, description: formState.description },
+            task: task && {
+              _id: task._id,
+              completed,
+              description: formState.description,
+            },
             resetFields,
             goBack: navigation.goBack,
           })
         }
-        title={task ? "Editar Tarea" : t('addTask.addTaskBtnTitle')}
+        title={
+          task ? t('addTask.editTaskBtnTitle') : t('addTask.addTaskBtnTitle')
+        }
       />
     </MainContainer>
   );

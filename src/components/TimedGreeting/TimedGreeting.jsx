@@ -5,6 +5,8 @@ const TimedGreetingText = styled.Text`
   width: 100%;
   font-weight: bold;
   text-align: right;
+  font-size: 16px;
+  text-transform: capitalize;
   margin-bottom: 15px;
 `;
 

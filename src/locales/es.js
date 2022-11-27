@@ -44,6 +44,8 @@ export default {
   addTask: {
     addTaskTitle: 'Crear nueva tarea',
     addTaskBtnTitle: 'Agregar tarea',
+    editTaskTitle: 'Editar tarea',
+    editTaskBtnTitle: 'Confirmar cambios',
     checkedText: 'Marcar como completado',
   },
   signIn: {
@@ -63,6 +65,7 @@ export default {
   displayMessages: {
     userWelcomeMessage: user => `Bienvenido ${user}`,
     taskCreationSuccessMessage: 'Tarea creada con éxito!',
+    taskUpdateSuccessMessage: 'Tarea actualizada con éxito!',
     taskDeletionSuccessMessage: 'Tarea eliminada con éxito',
     defaultErrorMessage: 'Error inesperado!',
     AE1: 'No se encontró el usuario ingresado',

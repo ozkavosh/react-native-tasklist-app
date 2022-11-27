@@ -16,7 +16,7 @@ const Home = ({navigation}) => {
 
       <Clock />
 
-      <P mv={15} bold>
+      <P fs={16} mv={15} bold>
         {t('home.taskListTitle')}
       </P>
       <TaskListContainer navigation={navigation} />

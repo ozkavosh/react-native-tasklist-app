@@ -36,7 +36,7 @@ const handleSubmit = async ({
 
     showMessage({
       title: "Éxito!",
-      message: t('displayMessages.taskCreationSuccessMessage'),
+      message: task ? t('displayMessages.taskUpdateSuccessMessage') : t('displayMessages.taskCreationSuccessMessage'),
       type: 'success',
     });
 

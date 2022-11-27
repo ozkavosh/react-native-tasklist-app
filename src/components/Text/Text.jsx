@@ -12,6 +12,7 @@ export const H1 = styled.Text`
         if(props.ms) styles+=`margin-left: ${props.ms}px;`;
         if(props.mv) styles+=`margin-top: ${props.mv}px; margin-bottom: ${props.mv}px;`;
         if(props.mh) styles+=`margin-left: ${props.mh}px; margin-right: ${props.mh}px;`;
+        if(props.fs) styles+=`font-size: ${props.fs}px;`;
         if(props.light) styles+=`color: white;`
         return css`${styles}`;
     }}
@@ -26,6 +27,7 @@ export const P = styled.Text`
         if(props.ms) styles+=`margin-left: ${props.ms}px;`;
         if(props.mv) styles+=`margin-top: ${props.mv}px; margin-bottom: ${props.mv}px;`;
         if(props.mh) styles+=`margin-left: ${props.mh}px; margin-right: ${props.mh}px;`;
+        if(props.fs) styles+=`font-size: ${props.fs}px;`;
         if(props.dark) styles+=`color: black;`
         if(props.light) styles+=`color: white;`
         if(props.primary) styles+=`color: #50C2C9;`;
@@ -45,6 +47,7 @@ export const Span = styled.Text`
         if(props.ms) styles+=`margin-left: ${props.ms}px;`;
         if(props.mv) styles+=`margin-top: ${props.mv}px; margin-bottom: ${props.mv}px;`;
         if(props.mh) styles+=`margin-left: ${props.mh}px; margin-right: ${props.mh}px;`;
+        if(props.fs) styles+=`font-size: ${props.fs}px;`;
         if(props.dark) styles+=`color: black;`
         if(props.light) styles+=`color: white;`
         if(props.primary) styles+=`color: #50C2C9;`;

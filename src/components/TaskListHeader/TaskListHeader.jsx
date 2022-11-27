@@ -8,7 +8,7 @@ import styles from './styles';
 const TaskListHeader = ({navigation}) => {
   return (
     <View style={styles.taskListHeader}>
-      <P bold>{t('home.taskListHeaderTitle')}</P>
+      <P fs={15} bold>{t('home.taskListHeaderTitle')}</P>
       <Button
         style={styles.button}
         title="+"
