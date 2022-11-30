@@ -1,13 +1,15 @@
 import React from 'react';
-import {H1} from '../Text/Text';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {View, Image, TouchableOpacity} from 'react-native';
 import {useAuthContext} from '../../context/authContext';
-import t from '../../utils/translate';
 import styles from './styles';
+import colors from '../../utils/colors';
+import { switchLocale } from '../../features/slices/localeSlice';
+import { useDispatch } from 'react-redux';
 
 const UserStatusBar = () => {
-  const {auth, logout} = useAuthContext();
+  const {logout} = useAuthContext();
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.userStatusBar}>
@@ -22,14 +24,10 @@ const UserStatusBar = () => {
         ) : (
           <View style={styles.avatarPlaceHolder} />
         )}
-        <TouchableOpacity onPress={logout} style={styles.logoutBtn}>
-          <Icon name="logout" size={16} />
+        <TouchableOpacity onPress={() => dispatch(switchLocale())} style={styles.logoutBtn}>
+          <Icon name="logout" size={16} color={colors.secondary} />
         </TouchableOpacity>
       </View>
-
-      <H1 mv={15} light>
-        {t('home.welcomeMessage')} {auth?.user?.name}{' '}
-      </H1>
     </View>
   );
 };

@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../utils/colors';
 
 const styles = StyleSheet.create({
   avatarPlaceHolder: {
     width: 110,
     height: 110,
-    backgroundColor: 'white',
+    backgroundColor: colors.primary,
     borderRadius: 60,
   },
   avatarImg: {
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
     height: 110,
     borderRadius: 60,
     borderWidth: 3,
-    borderColor: 'white',
+    borderColor: colors.primary,
   },
   userAvatar: {
     flexDirection: 'row',
@@ -20,8 +21,8 @@ const styles = StyleSheet.create({
   },
   userStatusBar: {
     left: '-6%',
-    backgroundColor: '#50C2C9',
     width: '112%',
+    backgroundColor: colors.background,
     alignItems: 'center',
     marginBottom: 10,
     paddingTop: 80,
@@ -29,13 +30,16 @@ const styles = StyleSheet.create({
   },
   logoutBtn: {
     position: 'absolute',
-    backgroundColor: 'white',
+    backgroundColor: colors.primary,
     paddingHorizontal: 5,
     paddingVertical: 5,
     borderRadius: 30,
     right: 0,
     bottom: 0,
   },
+  welcomeText: {
+    color: colors.primary
+  }
 });
 
 export default styles;

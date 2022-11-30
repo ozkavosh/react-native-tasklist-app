@@ -6,14 +6,16 @@ import Form from '../../components/Form/Form';
 import useForm from '../../hooks/useForm';
 import React, {useState} from 'react';
 import Button from '../../components/StyledButton/StyledButton';
-import t from '../../utils/translate';
+import useTranslate from '../../hooks/useTranslate';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import handleSubmit from '../../utils/handleTaskSubmit';
 import ADD_TASK_FIELDS from './addTaskFields';
 import styles from './styles';
 import {useNavigationState} from '@react-navigation/native';
+import colors from '../../utils/colors';
 
 const AddTask = ({navigation}) => {
+  const t = useTranslate();
   const task = useNavigationState(
     state => state.routes.find(route => route.name === 'AddTask').params?.task,
   );
@@ -38,6 +40,7 @@ const AddTask = ({navigation}) => {
         formState={formState}
         handleInput={handleInput}
         inputStyle={styles.input}
+        formStyle={styles.inputGroup}
       />
 
       <TouchableWithoutFeedback onPress={() => setCompleted(prev => !prev)}>
@@ -48,7 +51,7 @@ const AddTask = ({navigation}) => {
             alignItems: 'center',
           }}>
           <BouncyCheckbox
-            fillColor="#50C2C9"
+            fillColor={colors.primary}
             isChecked={completed}
             disableBuiltInState
             onPress={() => setCompleted(prev => !prev)}

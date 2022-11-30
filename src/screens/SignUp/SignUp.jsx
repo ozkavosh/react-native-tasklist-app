@@ -10,9 +10,10 @@ import Form from '../../components/Form/Form';
 import handleSubmit from '../../utils/handleAuthSubmit';
 import {useAuthContext} from '../../context/authContext';
 import {H1, P, Span} from '../../components/Text/Text';
-import t from '../../utils/translate';
+import useTranslate from '../../hooks/useTranslate';
 
 const SignUp = ({navigation}) => {
+  const t = useTranslate();
   const [formState, handleInput, validateFields, resetFields] =
     useForm(SIGNUP_FIELDS);
   const {setToken} = useAuthContext();

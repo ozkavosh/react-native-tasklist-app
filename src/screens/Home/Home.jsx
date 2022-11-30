@@ -3,11 +3,13 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import Ellipse from '../../components/Ellipse/Ellipse';
 import Clock from '../../components/Clock/Clock';
 import {P} from '../../components/Text/Text';
-import t from '../../utils/translate';
+import useTranslate from '../../hooks/useTranslate';
 import TaskListContainer from '../../components/TaskListContainer/TaskListContainer';
 import UserStatusBar from '../../components/UserStatusBar/UserStatusBar';
 
 const Home = ({navigation}) => {
+  const t = useTranslate();
+
   return (
     <MainContainer>
       <Ellipse light />

@@ -4,7 +4,7 @@ import {show, hide} from '../features/slices/loaderSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import showMessage from '../utils/showMessage';
 import axios from 'axios';
-import t from '../utils/translate';
+import useTranslate from '../hooks/useTranslate';
 
 const AuthContext = createContext(null);
 
@@ -13,6 +13,7 @@ export const useAuthContext = () => {
 };
 
 export const AuthContextProvider = ({children}) => {
+  const t = useTranslate();
   const dispatch = useDispatch();
   const INITIAL_AUTH = {token: null, user: null};
 

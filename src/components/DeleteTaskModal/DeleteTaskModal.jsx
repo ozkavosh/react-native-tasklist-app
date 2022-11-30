@@ -2,11 +2,13 @@ import {View, Modal} from 'react-native';
 import {H1, P} from '../Text/Text';
 import Button from '../StyledButton/StyledButton';
 import handleDelete from '../../utils/handleTaskDelete';
-import t from '../../utils/translate';
+import useTranslate from '../../hooks/useTranslate';
 import React from 'react';
 import styles from './styles';
 
 const DeleteTaskModal = ({visibleModal, setVisibleModal, task}) => {
+  const t = useTranslate();
+
   return (
     <Modal
       animationType="fade"

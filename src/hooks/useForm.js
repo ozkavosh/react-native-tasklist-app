@@ -1,7 +1,9 @@
 import {useReducer} from 'react';
-import t from '../utils/translate';
+import useTranslate from '../hooks/useTranslate';
 
 const useForm = fields => {
+  const t = useTranslate();
+
   const [formState, formDispatch] = useReducer((state, action) => {
     switch (action.type) {
       case 'RESET_FIELDS':

@@ -1,3 +1,5 @@
+import colors from '../../utils/colors';
+
 const styleVariations = {
   height: {
     seconds: 2,
@@ -10,9 +12,9 @@ const styleVariations = {
     hours: 35,
   },
   backgroundColor: {
-    seconds: '#c8dbe2',
-    minutes: '#9fc5c6',
-    hours: '#9fc5c6',
+    seconds: colors.background,
+    minutes: colors.background,
+    hours: colors.background,
   },
   left: {
     seconds: '15%',

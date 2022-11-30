@@ -1,8 +1,10 @@
 import {KeyboardAvoidingView, TextInput} from 'react-native';
 import React from 'react';
-import t from '../../utils/translate';
+import useTranslate from '../../hooks/useTranslate';
 
 const Form = ({formStyle, inputStyle, formState, handleInput}) => {
+  const t = useTranslate();
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS == 'ios' ? 'padding' : 'height'}

@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components/native";
+import colors from '../../utils/colors';
 
 const MainHour = styled.Text`
   position: absolute;
   font-weight: bold;
   font-size: 15px;
-  color: #88b5b5;
+  color: ${colors.primary};
   ${props => {
     switch (props.position) {
       case 'bottom':

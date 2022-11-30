@@ -1,15 +1,16 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../utils/colors';
 
 const styles = StyleSheet.create({
   clockBase: {
     width: 134,
     height: 134,
-    backgroundColor: '#dcf9fd',
+    backgroundColor: colors.secondary,
     borderRadius: 134 / 2,
     elevation: 7,
   },
   clockNotch: {
-    backgroundColor: '#c9dce3',
+    backgroundColor: colors.primary,
     position: 'absolute',
     left: '46%',
     top: '45%',

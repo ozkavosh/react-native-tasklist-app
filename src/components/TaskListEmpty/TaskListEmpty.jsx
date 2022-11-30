@@ -1,9 +1,11 @@
 import {Image, View} from 'react-native';
 import {P, Span} from '../Text/Text';
-import t from '../../utils/translate';
+import useTranslate from '../../hooks/useTranslate';
 import React from 'react';
 
 const TaskListEmpty = () => {
+  const t = useTranslate();
+
   return (
     <View style={{height: 150, justifyContent: 'center'}}>
       <Image

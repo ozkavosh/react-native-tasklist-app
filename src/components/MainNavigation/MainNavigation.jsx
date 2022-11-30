@@ -11,13 +11,14 @@ import Loader from '../Loader/Loader';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
+import colors from '../../utils/colors';
 const Stack = createNativeStackNavigator();
 
 const navigatorTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: '#EDEDEE',
+    background: colors.background,
   },
 };
 

@@ -1,4 +1,5 @@
 import styled, {css} from "styled-components/native";
+import colors from '../../utils/colors';
 
 export const H1 = styled.Text`
     font-weight: bold;
@@ -30,7 +31,7 @@ export const P = styled.Text`
         if(props.fs) styles+=`font-size: ${props.fs}px;`;
         if(props.dark) styles+=`color: black;`
         if(props.light) styles+=`color: white;`
-        if(props.primary) styles+=`color: #50C2C9;`;
+        if(props.primary) styles+=`color: ${colors.primary};`;
         if(props.center) styles+=`text-align: center;`;
         if(props.right) styles+=`text-align: right;`;
         if(props.bold) styles+=`font-weight: bold;`;
@@ -50,7 +51,7 @@ export const Span = styled.Text`
         if(props.fs) styles+=`font-size: ${props.fs}px;`;
         if(props.dark) styles+=`color: black;`
         if(props.light) styles+=`color: white;`
-        if(props.primary) styles+=`color: #50C2C9;`;
+        if(props.primary) styles+=`color: ${colors.primary};`;
         if(props.center) styles+=`text-align: center;`;
         if(props.right) styles+=`text-align: right;`;
         if(props.bold) styles+=`font-weight: bold;`;

@@ -1,8 +1,9 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../utils/colors';
 
 const styles = StyleSheet.create({
   taskListContainer: {
-    backgroundColor: 'white',
+    backgroundColor: colors.secondary,
     flex: 1,
     paddingHorizontal: 25,
     paddingVertical: 15,
