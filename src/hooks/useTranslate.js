@@ -4,7 +4,9 @@ import {useSelector} from 'react-redux';
 
 const languages = {es, en};
 
-const getTranslate = selectedLocale => {
+const useTranslate = () => {
+  const {selectedLocale} = useSelector(state => state.locale);
+
   return (t = key => {
     const split = key.split('.');
 
@@ -14,12 +16,6 @@ const getTranslate = selectedLocale => {
       }, languages[selectedLocale]) ?? key
     );
   });
-};
-
-const useTranslate = () => {
-  const {selectedLocale} = useSelector(state => state.locale);
-
-  return getTranslate(selectedLocale);
 };
 
 export default useTranslate;
