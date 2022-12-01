@@ -9,13 +9,13 @@ const handleDelete = async ({task, setVisibleModal}) => {
     await deleteTask(task?._id);
     await fetchTasks();
     showMessage({
-      title: 'Éxito!',
+      title: t('displayMessages.successMessageTitle'),
       message: t('displayMessages.taskDeletionSuccessMessage'),
       type: 'success',
     });
   } catch (e) {
     showMessage({
-      title: 'Error!',
+      title: t('displayMessages.errorMessageTitle'),
       message: e.message,
       type: 'error',
     });

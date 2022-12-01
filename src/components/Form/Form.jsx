@@ -16,13 +16,13 @@ const Form = ({formStyle, inputStyle, formState, handleInput}) => {
           onChangeText={value => handleInput(field, value)}
           style={inputStyle}
           secureTextEntry={
-            field === t('formFields.password') ||
-            field === t('formFields.passwordConfirm')
+            field === 'password' ||
+            field === 'passwordConfirm'
           }
           placeholder={
-            field === t('formFields.passwordConfirm')
+            field === 'passwordConfirm'
               ? t('form.placeholderPasswordConfirm')
-              : t('form.placeholderDefault')(field)
+              : t('form.placeholderDefault')(t(`formFields.${field}`))
           }
         />
       ))}

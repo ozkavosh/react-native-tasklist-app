@@ -1,6 +1,6 @@
 import {updateTask, getTasks} from './api';
 import store from '../features/store';
-import { setTasks } from '../features/slices/taskSlice';
+import { setTasks, setTasksInProgress } from '../features/slices/taskSlice';
 
 const checkTask = async task => {
   try {
@@ -9,8 +9,9 @@ const checkTask = async task => {
       description: task.description,
       completed: !task.completed,
     });
-    const requestTasks = await getTasks();
-    store.dispatch(setTasks(requestTasks.data?.data || []));
+    const tasksRequest = await getTasks();
+    store.dispatch(setTasks(tasksRequest.data.data || []));
+    store.dispatch(setTasksInProgress(tasksRequest.data.inProgress));
   } catch (e) {
     console.log(e.message);
   }

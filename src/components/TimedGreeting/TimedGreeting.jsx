@@ -7,10 +7,9 @@ const TimedGreetingText = styled.Text`
   width: 100%;
   color: ${colors.primary};
   font-weight: bold;
-  text-align: center;
   font-size: 24px;
   text-transform: capitalize;
-  margin-bottom: 25px;
+  margin-top: 25px;
 `;
 
 const TimedGreeting = () => {
@@ -26,7 +25,7 @@ const TimedGreeting = () => {
       : t('home.clockGreetingNight');
   };
 
-  return <TimedGreetingText>{`${getTimedGreeting()} ${auth?.user?.name}`}</TimedGreetingText>;
+  return <TimedGreetingText>{`${getTimedGreeting()} ${auth?.user?.name?.split(' ')[0]}`}</TimedGreetingText>;
 };
 
 export default TimedGreeting;

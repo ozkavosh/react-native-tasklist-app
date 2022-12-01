@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import showMessage from '../utils/showMessage';
 import axios from 'axios';
 import useTranslate from '../hooks/useTranslate';
+import { getUser } from '../utils/api';
 
 const AuthContext = createContext(null);
 
@@ -39,7 +40,7 @@ export const AuthContextProvider = ({children}) => {
 
   const setUser = user => {
     showMessage({
-      title: 'Éxito!',
+      title: t('displayMessages.successMessageTitle'),
       message: t('displayMessages.userWelcomeMessage')(user.name),
       type: 'success',
     });
@@ -84,10 +85,7 @@ export const AuthContextProvider = ({children}) => {
       (async () => {
         try {
           dispatch(show());
-          const request = await axios.get(
-            'https://ozkavosh-todo-api.glitch.me/user/me',
-            {headers: {Authorization: 'Bearer ' + auth.token}},
-          );
+          const request = await getUser();
           const user = request.data;
           setUser(user);
         } catch (e) {

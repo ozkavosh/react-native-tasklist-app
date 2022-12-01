@@ -1,10 +1,8 @@
-import t from '../../utils/translate';
-
 const SIGNUP_FIELDS = {
-    [t('formFields.name')]: '',
-    [t('formFields.email')]: '',
-    [t('formFields.password')]: '',
-    [t('formFields.passwordConfirm')]: ''
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirm: ''
 }
 
 export default SIGNUP_FIELDS;

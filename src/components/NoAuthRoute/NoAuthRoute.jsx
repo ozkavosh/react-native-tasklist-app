@@ -4,7 +4,7 @@ import Replace from '../Replace/Replace';
 const NoAuthRoute = ({children, navigation}) => {
   const {auth} = useAuthContext();
 
-  return !auth.token ? (
+  return !auth.user?.name ? (
     children
   ) : (
     <Replace navigation={navigation} where="Home" />

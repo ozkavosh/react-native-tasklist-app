@@ -5,9 +5,11 @@ import Button from '../../components/StyledButton/StyledButton';
 import styles from './styles';
 import Ellipse from '../../components/Ellipse/Ellipse';
 import {H1, P} from '../../components/Text/Text';
-import t from '../../utils/translate';
+import useTranslate from '../../hooks/useTranslate';
 
 const OnBoarding = ({navigation}) => {
+  const t = useTranslate();
+
   useEffect(() => {
     const backAction = () => {
       Alert.alert(

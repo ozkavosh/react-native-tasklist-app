@@ -9,10 +9,10 @@ const styles = StyleSheet.create({
     borderRadius: 60,
   },
   avatarImg: {
-    width: 110,
-    height: 110,
+    width: 40,
+    height: 40,
     borderRadius: 60,
-    borderWidth: 3,
+    borderWidth: 1,
     borderColor: colors.primary,
   },
   userAvatar: {
@@ -20,22 +20,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   userStatusBar: {
-    left: '-6%',
-    width: '112%',
-    backgroundColor: colors.background,
     alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
     marginBottom: 10,
-    paddingTop: 80,
-    zIndex: -1,
+    paddingTop: 50,
+    zIndex: 1,
   },
-  logoutBtn: {
-    position: 'absolute',
-    backgroundColor: colors.primary,
-    paddingHorizontal: 5,
-    paddingVertical: 5,
-    borderRadius: 30,
-    right: 0,
-    bottom: 0,
+  menuBtn: {
   },
   welcomeText: {
     color: colors.primary

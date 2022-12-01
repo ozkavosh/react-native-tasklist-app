@@ -4,7 +4,7 @@ import colors from './colors';
 const messageColors = {
     warning: colors.primary,
     success: colors.tertiary,
-    error: colors.secondary
+    error: colors.primary
 }
 
 export default ({title, message, type}) => showMessage({

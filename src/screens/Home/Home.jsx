@@ -6,9 +6,12 @@ import {P} from '../../components/Text/Text';
 import useTranslate from '../../hooks/useTranslate';
 import TaskListContainer from '../../components/TaskListContainer/TaskListContainer';
 import UserStatusBar from '../../components/UserStatusBar/UserStatusBar';
+import TimedGreeting from '../../components/TimedGreeting/TimedGreeting';
+import { useSelector } from 'react-redux';
 
 const Home = ({navigation}) => {
   const t = useTranslate();
+  const { tasksInProgress } = useSelector(state => state.task);
 
   return (
     <MainContainer>
@@ -18,8 +21,10 @@ const Home = ({navigation}) => {
 
       <Clock />
 
-      <P fs={16} mv={15} bold>
-        {t('home.taskListTitle')}
+      <TimedGreeting />
+
+      <P fs={16} mb={15} bold>
+        {tasksInProgress ? t('home.taskListRemaining')(tasksInProgress) : t('home.taskListNoRemaining')}
       </P>
       <TaskListContainer navigation={navigation} />
     </MainContainer>

@@ -13,16 +13,12 @@ const handleSubmit = async ({
 }) => {
   try {
     store.dispatch(show());
-    const {
-      [t('formFields.email')]: email,
-      [t('formFields.password')]: password,
-      [t('formFields.name')]: name,
-    } = formState;
+    const {email, password, name} = formState;
     const errors = validateFields(formState);
 
     if (errors.length)
       return showMessage({
-        title: 'Error!',
+        title: t('displayMessages.errorMessageTitle'),
         message: errors.join('\n\n'),
         type: 'warning',
       });
@@ -38,9 +34,8 @@ const handleSubmit = async ({
     setToken(token);
   } catch (e) {
     showMessage({
-      title: 'Error!',
-      message:
-        e.message,
+      title: t('displayMessages.errorMessageTitle'),
+      message: e.message,
       type: 'warning',
     });
   } finally {

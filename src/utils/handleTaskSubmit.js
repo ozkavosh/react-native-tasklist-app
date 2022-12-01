@@ -14,12 +14,12 @@ const handleSubmit = async ({
 }) => {
   try {
     store.dispatch(show());
-    const {[t('formFields.description')]: description} = formState;
+    const {description} = formState;
     const errors = validateFields(formState);
 
     if (errors.length)
       return showMessage({
-        title: "Error!",
+        title: t('displayMessages.errorMessageTitle'),
         message: errors.join('\n\n'),
         type: 'warning',
       });
@@ -35,7 +35,7 @@ const handleSubmit = async ({
     resetFields();
 
     showMessage({
-      title: "Éxito!",
+      title: t('displayMessages.successMessageTitle'),
       message: task ? t('displayMessages.taskUpdateSuccessMessage') : t('displayMessages.taskCreationSuccessMessage'),
       type: 'success',
     });
@@ -43,7 +43,7 @@ const handleSubmit = async ({
     goBack();
   } catch (e) {
     showMessage({
-      title: "Error!",
+      title: t('displayMessages.errorMessageTitle'),
       message: e.message,
       type: 'warning',
     });

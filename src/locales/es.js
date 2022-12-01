@@ -6,7 +6,8 @@ export default {
     clockGreetingMorning: 'Buenos días',
     clockGreetingEvening: 'Buenas tardes',
     clockGreetingNight: 'Buenas noches',
-    taskListTitle: 'Lista de tareas',
+    taskListRemaining: (remaining) => remaining === 1 ? `Tiene ${remaining} tarea pendiente` : `Tiene ${remaining} tareas pendientes`,
+    taskListNoRemaining: 'No tiene tareas pendientes',
     taskListHeaderTitle: 'Tareas diarias',
     taskListEmptyMessage: 'Su lista esta vacía',
     taskListEmptySpanMessage: 'Agregue algunas tareas!',
@@ -68,8 +69,14 @@ export default {
     taskUpdateSuccessMessage: 'Tarea actualizada con éxito!',
     taskDeletionSuccessMessage: 'Tarea eliminada con éxito',
     defaultErrorMessage: 'Error inesperado!',
+    successMessageTitle: 'Éxito!',
+    errorMessageTitle: 'Error!',
     AE1: 'No se encontró el usuario ingresado',
     AE2: 'La contraseña no coincide',
     AE3: 'El email ingresado ya está en uso',
   },
+  sideMenu: {
+    toggleLanguageLabel: 'Cambiar idioma',
+    logoutLabel: 'Cerrar sesión'
+  }
 };

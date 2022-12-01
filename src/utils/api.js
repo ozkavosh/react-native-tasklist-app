@@ -11,6 +11,8 @@ const API_ENDPOINTS = {
   getTasks: '/task',
   updateTask: `/task/:id`,
   deleteTask: `/task/:id`,
+  getUser: '/user/me',
+  uploadAvatar: '/user/me/avatar',
 };
 
 const getEndpoint = key => {
@@ -20,6 +22,16 @@ const getEndpoint = key => {
 const getHeadersWithToken = async () => {
   const token = await AsyncStorage.getItem('token');
   return {headers: {Authorization: 'Bearer ' + token}};
+};
+
+const getHeadersWithTokenMultipart = async () => {
+  const token = await AsyncStorage.getItem('token');
+  return {
+    headers: {
+      Authorization: 'Bearer ' + token,
+      'Content-Type': 'multipart/form-data',
+    },
+  };
 };
 
 export const postSignUp = async userData => {
@@ -104,6 +116,39 @@ export const deleteTask = async taskId => {
     log.warn(e.response);
     throw new Error(
       t(`displayMessages.${e.response?.data?.code || 'defaultErrorMessage'}`),
+    );
+  }
+};
+
+export const getUser = async () => {
+  try {
+    const request = await axios.get(
+      getEndpoint('getUser'),
+      await getHeadersWithToken(),
+    );
+    return request;
+  } catch (e) {
+    log.warn(e.response);
+    throw new Error(
+      t(`displayMessages.${e.response?.data?.code || 'defaultErrorMessage'}`),
+    );
+  }
+}
+
+export const postAvatar = async avatarData => {
+  try {
+    const request = await axios({
+      method: 'post',
+      url: getEndpoint('uploadAvatar'),
+      ...await getHeadersWithTokenMultipart(),
+      data: avatarData,
+      transformRequest: (data) => data,
+    });
+    return request;
+  } catch (e) {
+    log.warn(e.response);
+    throw new Error(
+      t(`displayMessages.${e?.response?.data?.code || 'defaultErrorMessage'}`),
     );
   }
 };

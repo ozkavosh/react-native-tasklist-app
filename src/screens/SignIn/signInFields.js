@@ -1,8 +1,6 @@
-import t from '../../utils/translate';
-
 const SIGNIN_FIELDS = {
-    [t('formFields.email')]: '',
-    [t('formFields.password')]: ''
+    email: '',
+    password: ''
 }
 
 export default SIGNIN_FIELDS;
