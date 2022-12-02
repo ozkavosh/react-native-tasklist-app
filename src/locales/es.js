@@ -17,7 +17,11 @@ export default {
   },
   onBoarding: {
     headingText: 'Complete sus tareas con TODo!',
-    descriptionText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, tempora.Esse natus suscipit cumque perspiciatis eos, aliquam quae ducimus iurequasi.',
+    descriptionText: `
+¡Bienvenido a TODo App! 
+Comience a organizar sus tareas
+y dele un orden a sus días.
+¡Vamos a aprovechar el tiempo!`,
     getStartedBtnTitle: 'Comenzar',
     closingAlertTitle: 'Espere!',
     closingAlertMessage: '¿Está seguro de salir de TODo?',
@@ -32,7 +36,7 @@ export default {
     email: 'correo',
     password: 'contraseña',
     name: 'nombre',
-    passwordConfirm: 'confirmarContraseña',
+    passwordConfirm: 'confirmar contraseña',
     description: 'descripción',
   },
   formValidations: {
@@ -51,7 +55,7 @@ export default {
   },
   signIn: {
     welcomeMessage: 'Bienvenido de vuelta!',
-    passwordMessage: 'Olvido su contraseña?',
+    passwordMessage: 'Olvidó su contraseña?',
     buttonTitle: 'Ingresar',
     signUpText: 'Todavía no tiene cuenta?',
     signUpSpanText: 'Cree una nueva',

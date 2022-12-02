@@ -2,9 +2,9 @@ import {showMessage} from 'react-native-flash-message';
 import colors from './colors';
 
 const messageColors = {
-    warning: colors.primary,
+    warning: '#ee6363',
     success: colors.tertiary,
-    error: colors.primary
+    error: 'red'
 }
 
 export default ({title, message, type}) => showMessage({

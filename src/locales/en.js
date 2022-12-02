@@ -17,7 +17,11 @@ export default {
   },
   onBoarding: {
     headingText: 'Get your tasks done with TODo!',
-    descriptionText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, tempora.Esse natus suscipit cumque perspiciatis eos, aliquam quae ducimus iurequasi.',
+    descriptionText: `
+¡Welcome to TODo App! 
+Start organizing your tasks
+to set an order to your day
+¡Lets seize the time!`,
     getStartedBtnTitle: 'Get Started',
     closingAlertTitle: 'Hold on!',
     closingAlertMessage: '¿Are you sure you want to exit TODo?',
@@ -32,7 +36,7 @@ export default {
     email: 'email',
     password: 'password',
     name: 'name',
-    passwordConfirm: 'passwordConfirm',
+    passwordConfirm: 'password confirm',
     description: 'description',
   },
   formValidations: {

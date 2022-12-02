@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   p: {
-    width: '65%'
+    width: '70%'
   },
   button: { alignSelf: 'stretch' },
   headerImg: {

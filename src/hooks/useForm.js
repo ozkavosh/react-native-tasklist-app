@@ -28,7 +28,7 @@ const useForm = fields => {
     
     for(k in fields){
         if(!fields[k]){
-            errors.push(t('formValidations.emptyField')(k));
+            errors.push(t('formValidations.emptyField')(t(`formFields.${k}`)));
         }
     }
 

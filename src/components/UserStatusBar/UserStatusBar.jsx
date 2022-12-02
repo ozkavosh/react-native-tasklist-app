@@ -15,6 +15,8 @@ const UserStatusBar = () => {
   const navigation = useNavigation();
   const { auth, setUser } = useAuthContext();
 
+  console.log(API_BASE_URL + auth?.user?.avatar);
+
   const handleImagePick = async () => {
     try {
       const result = await launchImageLibrary({maxWidth: 250, maxHeight: 250});

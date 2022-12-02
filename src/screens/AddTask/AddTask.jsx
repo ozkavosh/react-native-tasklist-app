@@ -26,7 +26,7 @@ const AddTask = ({navigation}) => {
 
   return (
     <MainContainer>
-      <Ellipse />
+      <Ellipse light />
 
       <Image
         source={require('../../assets/add-task.png')}

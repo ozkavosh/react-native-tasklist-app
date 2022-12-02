@@ -39,8 +39,8 @@ const OnBoarding = ({navigation}) => {
   }, []);
 
   return (
-    <MainContainer style={{alignItems: 'center'}}>
-      <Ellipse />
+    <MainContainer>
+      <Ellipse light />
 
       <View style={styles.header}>
         <Image
@@ -50,7 +50,7 @@ const OnBoarding = ({navigation}) => {
         <H1 mt={15}>{t('onBoarding.headingText')}</H1>
       </View>
 
-      <P mb={135} center style={styles.p}>
+      <P mb={135} fs={16} center>
         {t('onBoarding.descriptionText')}
       </P>
 
